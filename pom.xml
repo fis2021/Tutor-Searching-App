@@ -20,7 +20,6 @@
             <artifactId>javafx-fxml</artifactId>
             <version>15.0.1</version>
         </dependency>
-
         <dependency>
             <groupId>org.dizitart</groupId>
             <artifactId>nitrite</artifactId>
