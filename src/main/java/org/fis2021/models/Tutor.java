@@ -11,6 +11,9 @@ public class Tutor {
         this.specializare = specializare;
     }
 
+    public Tutor(){
+    }
+
     public String getNume() {
         return nume;
     }

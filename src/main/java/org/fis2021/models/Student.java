@@ -12,6 +12,9 @@ public class Student {
         this.parola = parola;
     }
 
+    public Student(){
+    }
+
     public String getNume() {
         return nume;
     }
