@@ -1,0 +1,50 @@
+.buttonmenu {
+    -fx-background-color: rgb(34, 21, 108);
+    -fx-text-fill: white;
+    -fx-font-size: 18;
+    -fx-font-weight: bold;
+}
+
+.buttonmenu:hover {
+    -fx-background-color: #331a6e;
+    -fx-text-fill: white;
+    -fx-font-size: 18;
+    -fx-font-weight: bold;
+}
+
+.shadow {
+    -fx-effect: dropShadow(three-pass-box, rgba(0, 0, 0, 0.1), 10, 0, 0, 10);
+}
+
+.box {
+    -fx-background-color:  #cfcbcb;
+    -fx-background-radius: 15;
+}
+
+.box:hover {
+    -fx-background-color: #aaa0a0;
+    -fx-background-radius: 15;
+}
+
+.label {
+    -fx-font-weight: bold;
+    -fx-font-size: 18;
+    -fx-text-fill: rgb(34, 21, 108);
+}
+
+.searchbar-box {
+    -fx-background-color: #ffffff;
+    -fx-background-radius: 100;
+}
+
+.tutorlistitem {
+    -fx-background-color:  #cfcbcb;
+    -fx-background-radius: 100;
+}
+
+.tutorlistitem:hover {
+    -fx-background-color: #aaa0a0;
+    -fx-background-radius: 100;
+}
+
+

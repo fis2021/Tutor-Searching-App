@@ -62,6 +62,10 @@ public class LoginController {
     void login() {
         initStudent();
         initTutor();
+        if(roleBox.getValue() == null){
+            invalidCredentialsLabel.setText("Please choose your role!");
+            return;
+        }
         if(((String) roleBox.getValue()).equals("Student")) {
             initStudent();
 
@@ -81,10 +85,14 @@ public class LoginController {
                 String stored_password = StudentService.getHashedUserPassword(usernameField.getText());
                 if(stored_password.equals(encoded_password)){
                     invalidCredentialsLabel.setText(String.format("Successfully logged in as %s!", usernameField.getText()));
+                    Stage stage = (Stage) invalidCredentialsLabel.getScene().getWindow();
+                    Scene scene = new Scene(loadFXML("homepageStudent"));
+                    stage.setTitle("Tutor Searching App - Student Home Page");
+                    stage.setScene(scene);
                     return;
                 }
 
-            } catch(UserNotFoundException e){
+            } catch(UserNotFoundException | IOException e){
                 invalidCredentialsLabel.setText(e.getMessage());
                 return;
             }
