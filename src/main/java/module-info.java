@@ -3,6 +3,7 @@ module org.fis2021 {
     requires javafx.fxml;
     requires nitrite;
     requires com.fasterxml.jackson.databind;
+    requires com.calendarfx.view;
 
     opens org.fis2021 to javafx.fxml, com.fasterxml.jackson.databind;
     exports org.fis2021;

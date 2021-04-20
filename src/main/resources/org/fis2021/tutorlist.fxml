@@ -59,7 +59,7 @@
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Button layoutX="10.0" layoutY="228.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="150.0" styleClass="buttonmenu" stylesheets="@style/style.css" text="Calendar">
+                  <Button layoutX="10.0" layoutY="228.0" mnemonicParsing="false" onAction="#switchToCalendar" prefHeight="37.0" prefWidth="150.0" styleClass="buttonmenu" stylesheets="@style/style.css" text="Calendar">
                      <graphic>
                         <ImageView fitHeight="46.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -92,7 +92,7 @@
                         <HBox alignment="CENTER" prefHeight="54.0" prefWidth="398.0" style="-fx-background-color: #ffffff; -fx-background-radius: 200;">
                            <children>
                               <TextField fx:id="searchTextField" prefHeight="26.0" prefWidth="246.0" promptText="Type here to search" style="-fx-background-color: transparent;" />
-                              <Button fx:id="searchButton" mnemonicParsing="false" onAction="#searchButtonPressed" prefHeight="26.0" prefWidth="70.0" style="-fx-background-color: rgb(34, 21, 108); -fx-background-radius: 15;" text="Search" textFill="WHITE">
+                              <Button mnemonicParsing="false" onAction="#searchButtonPressed" prefHeight="26.0" prefWidth="70.0" style="-fx-background-color: rgb(34, 21, 108); -fx-background-radius: 15;" text="Search" textFill="WHITE">
                                  <font>
                                     <Font name="System Bold" size="13.0" />
                                  </font>
@@ -127,7 +127,7 @@
                   </Label>
                   <HBox alignment="CENTER" prefHeight="620.0" prefWidth="1130.0">
                      <children>
-                        <ScrollPane prefHeight="200.0" prefWidth="1050.0" style="-fx-background-color: transparent;">
+                        <ScrollPane fx:id="scrollPane" prefHeight="200.0" prefWidth="1050.0" style="-fx-background-color: transparent;">
                            <content>
                               <VBox fx:id="vBox" alignment="TOP_CENTER" prefHeight="620.0" prefWidth="1000.0" spacing="25.0">
                                  <padding>

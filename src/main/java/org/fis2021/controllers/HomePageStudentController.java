@@ -38,7 +38,7 @@ public class HomePageStudentController implements Initializable {
                 VBox vBox = loader.load();
                 ItemCursController itemCursController = loader.getController();
                 itemCursController.setData(tutor);
-                if (column == 3){
+                if (column == 3) {
                     column = 0;
                     row++;
                 }
@@ -66,4 +66,13 @@ public class HomePageStudentController implements Initializable {
         stage.setTitle("Tutor Searching App - Tutor List");
         stage.setScene(scene);
     }
+
+    @FXML
+    void switchToCalendar() throws IOException {
+        Stage stage = (Stage) gridPane.getScene().getWindow();
+        Scene scene = new Scene(loadFXML("calendar"), 1280, 720);
+        stage.setTitle("Tutor Searching App - Calendar");
+        stage.setScene(scene);
+    }
 }
+

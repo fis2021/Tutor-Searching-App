@@ -60,6 +60,10 @@ public class TutorRegisterController {
     void registerTutor() {
         initTutor();
         try {
+            if (numeField.getText().isEmpty() || usernameField.getText().isEmpty() || passwordField.getText().isEmpty() || materieField.getText().isEmpty() || specializareField.getText().isEmpty()){
+                invalidCredentialsLabel.setText("Please fill in the required fields!");
+                return;
+            }
             TutorService.addTutor(numeField.getText(), usernameField.getText(), passwordField.getText(), materieField.getText(), specializareField.getText());
             invalidCredentialsLabel.setText("Account created successfully!");
         } catch (UsernameAlreadyExistsException e) {
