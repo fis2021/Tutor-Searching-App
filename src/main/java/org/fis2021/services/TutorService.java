@@ -10,7 +10,7 @@ import org.fis2021.models.Tutor;
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-import java.util.Objects;
+import java.util.*;
 
 public class TutorService {
 
@@ -38,6 +38,15 @@ public class TutorService {
             return tutor;
         }
         throw new UserNotFoundException(username);
+    }
+
+    public static ArrayList<Tutor> getAllTutors(){
+        ArrayList<Tutor> tutorList = new ArrayList<>();
+        for(Tutor tutor : tutorRepository.find()){
+            tutorList.add(tutor);
+        }
+        tutorList.sort(Comparator.comparing(Tutor::getNume));
+        return tutorList;
     }
 
     public static String encodePassword(String salt, String password) {
