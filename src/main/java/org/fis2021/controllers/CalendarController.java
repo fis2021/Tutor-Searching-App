@@ -5,17 +5,27 @@ import com.calendarfx.model.CalendarSource;
 import com.calendarfx.model.Entry;
 import com.calendarfx.model.Interval;
 import com.calendarfx.view.CalendarView;
+import com.fasterxml.jackson.core.JsonProcessingException;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
+import javafx.scene.control.DatePicker;
 import javafx.stage.Stage;
+import org.fis2021.models.Lesson;
+import org.fis2021.models.Student;
+import org.fis2021.models.Tutor;
+import org.fis2021.services.LessonService;
+import org.fis2021.services.StudentHolder;
+import org.fis2021.services.TutorService;
 
 import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 import static org.fis2021.App.loadFXML;
@@ -25,15 +35,18 @@ public class CalendarController implements Initializable {
     private CalendarView calendarView;
 
     private Calendar calendar;
+    private ArrayList<Lesson> lessons;
 
-    public void addEntryToCalendar(Entry entry){
-        calendar.addEntry(entry);
+    public LocalDate stringToDate(String date) {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("d MM yyyy");
+        LocalDate localDate = LocalDate.parse(date, formatter);
+        return localDate;
     }
 
-    public Entry setEntry(String name, LocalDateTime start, LocalDateTime stop){
-        Entry entry = new  Entry(name,new Interval(start, stop));
-        entry.setRecurrenceRule("RRULE:FREQ=WEEKLY");
-        return entry;
+    public LocalTime stringToTime(String time) {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm");
+        LocalTime localTime = LocalTime.parse(time, formatter);
+        return localTime;
     }
 
     @FXML
@@ -58,46 +71,26 @@ public class CalendarController implements Initializable {
 
         calendar.setStyle(Calendar.Style.STYLE2);
 
-        LocalDateTime ora1 = LocalDateTime.of(2021, 04, 17, 10, 0);
-        LocalDateTime ora2 = LocalDateTime.of(2021, 04, 17, 12, 0);
-
-        LocalDateTime ora3 = LocalDateTime.of(2021, 04, 20, 12, 0, 0);
-        LocalDateTime ora4 = LocalDateTime.of(2021, 04, 20, 14, 0, 0);
-
-
-        addEntryToCalendar(setEntry("Curs FIS", ora1, ora2));
-        addEntryToCalendar(setEntry("Curs PAA", ora3, ora4));
-
         calendar.setReadOnly(true);
+
+        StudentHolder studentHolder = StudentHolder.getInstance();
+        Student student = studentHolder.getStudent();
+        lessons = LessonService.getAllLessons();
+        for (Lesson lesson : lessons) {
+            if (lesson.getStudentName() != null && lesson.getStudentName().equals(student.getUsername()) && lesson.getStatus().equals("accepted")) {
+                Interval interval = new Interval(stringToDate(lesson.getDate()), stringToTime(lesson.getStartTime()), stringToDate(lesson.getDate()), stringToTime(lesson.getEndTime()));
+                Entry entry = new Entry(lesson.getLessonName(), interval);
+                if (lesson.isWeeklyRec()){
+                    entry.setRecurrenceRule("RRULE:FREQ=WEEKLY");
+                }
+                calendar.addEntry(entry);
+            }
+        }
 
         CalendarSource myCalendarSource = new CalendarSource("My Calendars");
         myCalendarSource.getCalendars().addAll(calendar);
 
         calendarView.getCalendarSources().addAll(myCalendarSource);
         calendarView.setRequestedTime(LocalTime.now());
-
-        Thread updateTimeThread = new Thread("Calendar: Update Time Thread") {
-            @Override
-            public void run() {
-                while (true) {
-                    Platform.runLater(() -> {
-                        calendarView.setToday(LocalDate.now());
-                        calendarView.setTime(LocalTime.now());
-                    });
-
-                    try {
-                        // update every 10 seconds
-                        sleep(10000);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
-
-                }
-            }
-        };
-
-        updateTimeThread.setPriority(Thread.MIN_PRIORITY);
-        updateTimeThread.setDaemon(true);
-        updateTimeThread.start();
     }
 }

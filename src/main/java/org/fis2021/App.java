@@ -27,6 +27,7 @@ public class App extends Application {
         scene = new Scene(loadFXML("login"), 1280, 720);
         stage.setTitle("Tutor Searching App - Login");
         stage.setScene(scene);
+        stage.setResizable(false);
         stage.show();
     }
 

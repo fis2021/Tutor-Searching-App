@@ -18,6 +18,7 @@ import org.fis2021.services.TutorService;
 import java.io.IOException;
 
 import static org.fis2021.App.loadFXML;
+import static org.fis2021.services.LessonService.initLesson;
 import static org.fis2021.services.StudentService.initStudent;
 import static org.fis2021.services.TutorService.initTutor;
 
@@ -64,6 +65,7 @@ public class LoginController {
     void login() {
         initStudent();
         initTutor();
+        initLesson();
         if(roleBox.getValue() == null){
             invalidCredentialsLabel.setText("Please choose your role!");
             return;

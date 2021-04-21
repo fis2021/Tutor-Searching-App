@@ -44,9 +44,6 @@ public class TutorListController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         addTutors();
-        StudentHolder studentHolder = StudentHolder.getInstance();
-        Student student = studentHolder.getStudent();
-        System.out.println(student.getNume());
     }
 
     void addTutors(){

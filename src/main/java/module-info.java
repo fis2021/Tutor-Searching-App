@@ -13,5 +13,5 @@ module org.fis2021 {
     opens org.fis2021.services to javafx.fxml;
     exports org.fis2021.controllers;
     opens org.fis2021.controllers to com.fasterxml.jackson.databind, javafx.fxml;
-    opens org.fis2021.models to com.fasterxml.jackson.databind;
+    opens org.fis2021.models to com.fasterxml.jackson.databind, nitrite;
 }

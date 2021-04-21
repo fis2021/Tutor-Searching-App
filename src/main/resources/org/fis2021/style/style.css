@@ -46,5 +46,8 @@
     -fx-background-color: #aaa0a0;
     -fx-background-radius: 100;
 }
+.table-view-cell {
+    -fx-background-color: #cfcbcb;
+}
 
 

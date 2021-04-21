@@ -1,7 +1,13 @@
 package org.fis2021.models;
 
+import org.dizitart.no2.objects.Id;
+
 public class Student {
-    private String nume, facultate, specializare, nrMatricol, username, parola;
+
+    @Id
+    String username;
+
+    private String nume, facultate, specializare, nrMatricol, parola;
 
     public Student(String nume, String facultate, String specializare, String nrMatricol, String username, String parola) {
         this.nume = nume;
