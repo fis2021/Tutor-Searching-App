@@ -7,6 +7,9 @@ import javafx.scene.layout.HBox;
 import org.fis2021.models.Lesson;
 import org.fis2021.services.LessonService;
 
+import java.time.DayOfWeek;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
 public class LessonItemController {
@@ -24,6 +27,9 @@ public class LessonItemController {
 
     @FXML
     private Label endTimeLabel;
+
+    @FXML
+    private Label freqLabel;
 
     private Lesson lesson;
 
@@ -54,12 +60,27 @@ public class LessonItemController {
         }
     }
 
+    public LocalDate stringToDate(String date) {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("d MM yyyy");
+        LocalDate localDate = LocalDate.parse(date, formatter);
+        return localDate;
+    }
+
+    public String localDateToDayOfWeek(String date) {
+        LocalDate localDate = stringToDate(date);
+        DayOfWeek dayOfWeek = localDate.getDayOfWeek();
+        return dayOfWeek.toString();
+    }
+
     public void setData(Lesson lesson) {
         this.lesson = lesson;
         lessonNameLabel.setText(lesson.getLessonName());
-        dateLabel.setText(lesson.getDate());
+        dateLabel.setText(localDateToDayOfWeek(lesson.getDate()));
         startTimeLabel.setText(lesson.getStartTime());
         endTimeLabel.setText(lesson.getEndTime());
+        if (lesson.isWeeklyRec()){
+            freqLabel.setText("weekly");
+        }
     }
 
 }

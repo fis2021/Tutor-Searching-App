@@ -65,14 +65,14 @@
       </HBox>
       <HBox alignment="CENTER" prefHeight="321.0" prefWidth="800.0">
          <children>
-            <AnchorPane prefHeight="221.0" prefWidth="224.0" />
-            <Label prefHeight="35.0" prefWidth="86.0" text="Classes" textFill="#22156c">
+            <AnchorPane prefHeight="221.0" prefWidth="226.0" />
+            <Label prefHeight="35.0" prefWidth="83.0" text="Classes" textFill="#22156c">
                <font>
                   <Font name="System Bold" size="24.0" />
                </font>
             </Label>
             <AnchorPane prefHeight="221.0" prefWidth="57.0" />
-            <ListView fx:id="listView" prefHeight="221.0" prefWidth="414.0" stylesheets="@style/tableviewlessons.css">
+            <ListView fx:id="listView" prefHeight="221.0" prefWidth="440.0" stylesheets="@style/tableviewlessons.css">
                <styleClass>
                   <String fx:value="list-view" />
                   <String fx:value="cell" />
@@ -81,13 +81,13 @@
                   <Insets />
                </HBox.margin>
                <padding>
-                  <Insets left="20.0" top="20.0" />
+                  <Insets left="2.0" top="20.0" />
                </padding>
             </ListView>
          </children>
       </HBox>
    </children>
    <padding>
-      <Insets bottom="20.0" />
+      <Insets bottom="20.0" right="5.0" />
    </padding>
 </VBox>
