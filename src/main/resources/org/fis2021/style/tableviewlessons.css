@@ -12,3 +12,11 @@
     -fx-border-width: 3;
 }
 
+.lessonitem {
+    -fx-background-color:  #cfcbcb;
+}
+
+.lessonitem:hover{
+    -fx-background-color: #aaa0a0;
+}
+

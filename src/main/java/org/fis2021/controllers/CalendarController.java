@@ -5,24 +5,18 @@ import com.calendarfx.model.CalendarSource;
 import com.calendarfx.model.Entry;
 import com.calendarfx.model.Interval;
 import com.calendarfx.view.CalendarView;
-import com.fasterxml.jackson.core.JsonProcessingException;
-import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
-import javafx.scene.control.DatePicker;
 import javafx.stage.Stage;
 import org.fis2021.models.Lesson;
 import org.fis2021.models.Student;
-import org.fis2021.models.Tutor;
 import org.fis2021.services.LessonService;
 import org.fis2021.services.StudentHolder;
-import org.fis2021.services.TutorService;
 
 import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
@@ -64,6 +58,23 @@ public class CalendarController implements Initializable {
         stage.setTitle("Tutor Searching App - Tutor List");
         stage.setScene(scene);
     }
+
+    @FXML
+    void switchToCalendar() throws IOException {
+        Stage stage = (Stage) calendarView.getScene().getWindow();
+        Scene scene = new Scene(loadFXML("calendar"), 1280, 720);
+        stage.setTitle("Tutor Searching App - Calendar");
+        stage.setScene(scene);
+    }
+
+    @FXML
+    void switchToRequest() throws IOException {
+        Stage stage = (Stage) calendarView.getScene().getWindow();
+        Scene scene = new Scene(loadFXML("requestStudent"), 1280, 720);
+        stage.setTitle("Tutor Searching App - Requests");
+        stage.setScene(scene);
+    }
+
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
