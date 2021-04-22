@@ -1,26 +1,33 @@
 package org.fis2021.services;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.SerializationFeature;
 import org.dizitart.no2.objects.Cursor;
 import org.dizitart.no2.objects.ObjectRepository;
 import org.dizitart.no2.objects.filters.ObjectFilters;
 import org.fis2021.exceptions.UserNotFoundException;
 import org.fis2021.exceptions.UsernameAlreadyExistsException;
+import org.fis2021.models.Lesson;
 import org.fis2021.models.Tutor;
 
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.*;
 
 public class TutorService {
 
     private static ObjectRepository<Tutor> tutorRepository;
+    private static ObjectRepository<Lesson> lessonRepository;
 
     public static void initTutor(){
         tutorRepository = DatabaseService.getDatabase().getRepository(Tutor.class);
     }
 
-    public static void addTutor(String nume, String username, String parola, String materie, String specializare) throws UsernameAlreadyExistsException {
+    public static void addTutor(String nume, String username, String parola, String materie, String specializare) throws UsernameAlreadyExistsException, JsonProcessingException {
         checkTutorDoesNotAlreadyExist(username);
         tutorRepository.insert(new Tutor(nume, username, encodePassword(username,parola), materie, specializare));
     }

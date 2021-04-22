@@ -10,12 +10,15 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import org.fis2021.exceptions.UserNotFoundException;
+import org.fis2021.models.Student;
+import org.fis2021.services.StudentHolder;
 import org.fis2021.services.StudentService;
 import org.fis2021.services.TutorService;
 
 import java.io.IOException;
 
 import static org.fis2021.App.loadFXML;
+import static org.fis2021.services.LessonService.initLesson;
 import static org.fis2021.services.StudentService.initStudent;
 import static org.fis2021.services.TutorService.initTutor;
 
@@ -62,6 +65,7 @@ public class LoginController {
     void login() {
         initStudent();
         initTutor();
+        initLesson();
         if(roleBox.getValue() == null){
             invalidCredentialsLabel.setText("Please choose your role!");
             return;
@@ -84,6 +88,9 @@ public class LoginController {
             try{
                 String stored_password = StudentService.getHashedUserPassword(usernameField.getText());
                 if(stored_password.equals(encoded_password)){
+                    Student student = StudentService.getStudent(usernameField.getText());
+                    StudentHolder studentHolder = StudentHolder.getInstance();
+                    studentHolder.setStudent(student);
                     invalidCredentialsLabel.setText(String.format("Successfully logged in as %s!", usernameField.getText()));
                     Stage stage = (Stage) invalidCredentialsLabel.getScene().getWindow();
                     Scene scene = new Scene(loadFXML("homepageStudent"));

@@ -9,7 +9,11 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Region;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import org.fis2021.models.Lesson;
+import org.fis2021.models.Student;
 import org.fis2021.models.Tutor;
+import org.fis2021.services.LessonService;
+import org.fis2021.services.StudentHolder;
 import org.fis2021.services.TutorService;
 
 import java.io.IOException;
@@ -24,35 +28,39 @@ public class HomePageStudentController implements Initializable {
     private GridPane gridPane;
 
     private ArrayList<Tutor> tutorArrayList = new ArrayList<>();
+    private ArrayList<Lesson> lessonArrayList = new ArrayList<>();
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         try {
             tutorArrayList = TutorService.getAllTutors();
-
+            lessonArrayList = LessonService.getAllLessons();
             int column = 0;
             int row = 1;
+            StudentHolder studentHolder = StudentHolder.getInstance();
+            Student student = studentHolder.getStudent();
+            for (Lesson lesson : lessonArrayList) {
+                if (lesson.getStudentName() != null && lesson.getStudentName().equals(student.getUsername()) && lesson.getStatus().equals("accepted")) {
+                    FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/fis2021/itemcurs.fxml"));
+                    VBox vBox = loader.load();
+                    ItemCursController itemCursController = loader.getController();
+                    itemCursController.setData(lesson);
+                    if (column == 3) {
+                        column = 0;
+                        row++;
+                    }
+                    gridPane.add(vBox, column++, row);
 
-            for (Tutor tutor : tutorArrayList) {
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/fis2021/itemcurs.fxml"));
-                VBox vBox = loader.load();
-                ItemCursController itemCursController = loader.getController();
-                itemCursController.setData(tutor);
-                if (column == 3){
-                    column = 0;
-                    row++;
+                    gridPane.setMinWidth(Region.USE_COMPUTED_SIZE);
+                    gridPane.setPrefWidth(Region.USE_COMPUTED_SIZE);
+                    gridPane.setMinWidth(Region.USE_PREF_SIZE);
+
+                    gridPane.setMinHeight(Region.USE_COMPUTED_SIZE);
+                    gridPane.setPrefHeight(Region.USE_COMPUTED_SIZE);
+                    gridPane.setMinHeight(Region.USE_PREF_SIZE);
+
+                    GridPane.setMargin(vBox, new Insets(20));
                 }
-                gridPane.add(vBox, column++, row);
-
-                gridPane.setMinWidth(Region.USE_COMPUTED_SIZE);
-                gridPane.setPrefWidth(Region.USE_COMPUTED_SIZE);
-                gridPane.setMinWidth(Region.USE_PREF_SIZE);
-
-                gridPane.setMinHeight(Region.USE_COMPUTED_SIZE);
-                gridPane.setPrefHeight(Region.USE_COMPUTED_SIZE);
-                gridPane.setMinHeight(Region.USE_PREF_SIZE);
-
-                GridPane.setMargin(vBox, new Insets(20));
             }
         } catch (IOException e) {
             e.printStackTrace();
@@ -66,4 +74,13 @@ public class HomePageStudentController implements Initializable {
         stage.setTitle("Tutor Searching App - Tutor List");
         stage.setScene(scene);
     }
+
+    @FXML
+    void switchToCalendar() throws IOException {
+        Stage stage = (Stage) gridPane.getScene().getWindow();
+        Scene scene = new Scene(loadFXML("calendar"), 1280, 720);
+        stage.setTitle("Tutor Searching App - Calendar");
+        stage.setScene(scene);
+    }
 }
+

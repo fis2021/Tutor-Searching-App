@@ -1,9 +1,19 @@
 package org.fis2021.models;
 
-public class Tutor {
-    private String nume, username, parola, materie, specializare ;
+import org.dizitart.no2.objects.Id;
 
-    public Tutor(String nume, String username, String parola, String materie, String specializare) {
+import java.util.ArrayList;
+import java.util.List;
+
+public class Tutor {
+
+    @Id
+    private String username;
+
+    private String nume, parola, materie, specializare;
+
+
+    public Tutor(String nume, String username, String parola, String materie,String specializare) {
         this.nume = nume;
         this.username = username;
         this.parola = parola;
