@@ -76,6 +76,14 @@ public class HomePageStudentController implements Initializable {
     }
 
     @FXML
+    void switchToRequests() throws IOException {
+        Stage stage = (Stage) gridPane.getScene().getWindow();
+        Scene scene = new Scene(loadFXML("requestStudent"), 1280, 720);
+        stage.setTitle("Tutor Searching App - Requests");
+        stage.setScene(scene);
+    }
+
+    @FXML
     void switchToCalendar() throws IOException {
         Stage stage = (Stage) gridPane.getScene().getWindow();
         Scene scene = new Scene(loadFXML("calendar"), 1280, 720);

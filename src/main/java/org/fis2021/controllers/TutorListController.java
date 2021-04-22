@@ -137,4 +137,12 @@ public class TutorListController implements Initializable {
         stage.setTitle("Tutor Searching App - Calendar");
         stage.setScene(scene);
     }
+
+    @FXML
+    void switchToRequests() throws IOException {
+        Stage stage = (Stage) vBox.getScene().getWindow();
+        Scene scene = new Scene(loadFXML("requestStudent"), 1280, 720);
+        stage.setTitle("Tutor Searching App - Calendar");
+        stage.setScene(scene);
+    }
 }
