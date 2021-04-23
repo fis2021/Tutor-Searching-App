@@ -1,15 +1,12 @@
 package org.fis2021.controllers;
 
 import com.calendarfx.view.TimeField;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import javafx.fxml.FXML;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
 import org.fis2021.exceptions.UsernameAlreadyExistsException;
-import org.fis2021.models.Tutor;
 import org.fis2021.services.LessonService;
-import org.fis2021.services.StudentService;
 import org.fis2021.services.TutorService;
 
 import java.io.IOException;
@@ -17,7 +14,6 @@ import java.time.format.DateTimeFormatter;
 
 import static org.fis2021.App.loadFXML;
 import static org.fis2021.services.LessonService.initLesson;
-import static org.fis2021.services.StudentService.initStudent;
 import static org.fis2021.services.TutorService.initTutor;
 
 public class TutorRegisterController {
@@ -84,9 +80,9 @@ public class TutorRegisterController {
             }
             String date = datePicker.getValue().format(DateTimeFormatter.ofPattern("dd MM yyyy"));
             TutorService.addTutor(numeField.getText(), usernameField.getText(), passwordField.getText(), materieField.getText(), specializareField.getText());
-            LessonService.addLesson(numeField.getText(), classNameField.getText(), date, startTime.getValue().toString(), endTime.getValue().toString(), recurrenceCheckBox.isSelected());
+            LessonService.addLesson(numeField.getText(), classNameField.getText(), date, startTime.getValue().toString(), endTime.getValue().toString(), recurrenceCheckBox.isSelected(), "", "");
             invalidCredentialsLabel.setText("Account created successfully!");
-        } catch (UsernameAlreadyExistsException | JsonProcessingException e) {
+        } catch (UsernameAlreadyExistsException e) {
             invalidCredentialsLabel.setText(e.getMessage());
         }
     }

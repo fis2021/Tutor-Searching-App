@@ -91,6 +91,7 @@ public class LoginController {
                     Student student = StudentService.getStudent(usernameField.getText());
                     StudentHolder studentHolder = StudentHolder.getInstance();
                     studentHolder.setStudent(student);
+                    System.out.println(studentHolder.getStudent().getUsername());
                     invalidCredentialsLabel.setText(String.format("Successfully logged in as %s!", usernameField.getText()));
                     Stage stage = (Stage) invalidCredentialsLabel.getScene().getWindow();
                     Scene scene = new Scene(loadFXML("homepageStudent"));

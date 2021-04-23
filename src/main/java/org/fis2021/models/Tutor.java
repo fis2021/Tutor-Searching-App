@@ -2,15 +2,14 @@ package org.fis2021.models;
 
 import org.dizitart.no2.objects.Id;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class Tutor {
 
     @Id
     private String username;
 
     private String nume, parola, materie, specializare;
+    double rating;
+    int cntRating;
 
 
     public Tutor(String nume, String username, String parola, String materie,String specializare) {
@@ -22,6 +21,22 @@ public class Tutor {
     }
 
     public Tutor(){
+    }
+
+    public double getRating() {
+        return rating;
+    }
+
+    public void setRating(double rating) {
+        this.rating = rating;
+    }
+
+    public int getCntRating() {
+        return cntRating;
+    }
+
+    public void setCntRating(int cntRating) {
+        this.cntRating = cntRating;
     }
 
     public String getNume() {

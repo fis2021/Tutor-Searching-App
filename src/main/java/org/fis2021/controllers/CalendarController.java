@@ -8,6 +8,8 @@ import com.calendarfx.view.CalendarView;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import javafx.stage.Stage;
 import org.fis2021.models.Lesson;
 import org.fis2021.models.Student;
@@ -73,6 +75,20 @@ public class CalendarController implements Initializable {
         Scene scene = new Scene(loadFXML("requestStudent"), 1280, 720);
         stage.setTitle("Tutor Searching App - Requests");
         stage.setScene(scene);
+    }
+
+    @FXML
+    void logoutButtonPressed() throws IOException {
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Logout");
+        alert.setHeaderText("You are about to log out!");
+        alert.setContentText("Do you want to log out?");
+        if (alert.showAndWait().get() == ButtonType.OK) {
+            Stage stage = (Stage) calendarView.getScene().getWindow();
+            Scene scene = new Scene(loadFXML("login"), 1280, 720);
+            stage.setTitle("Tutor Searching App - Login");
+            stage.setScene(scene);
+        }
     }
 
 

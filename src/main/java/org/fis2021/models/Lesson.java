@@ -1,9 +1,9 @@
 package org.fis2021.models;
 
-import org.dizitart.no2.Nitrite;
 import org.dizitart.no2.NitriteId;
 import org.dizitart.no2.objects.Id;
-import org.fis2021.services.LessonService;
+
+import java.util.Objects;
 
 public class Lesson {
     @Id
@@ -16,7 +16,7 @@ public class Lesson {
     Lesson(){
     }
 
-    public Lesson(String tutorName, String lessonName, String date, String startTime, String endTime, boolean weeklyRec) {
+    public Lesson(String tutorName, String lessonName, String date, String startTime, String endTime, boolean weeklyRec, String studentName, String status) {
         this.tutorName = tutorName;
         this.lessonName = lessonName;
         this.date = date;
@@ -24,6 +24,8 @@ public class Lesson {
         this.endTime = endTime;
         this.id = NitriteId.newId().toString();
         this.weeklyRec = weeklyRec;
+        this.studentName = studentName;
+        this.status = status;
     }
 
     public boolean isWeeklyRec() {
@@ -95,5 +97,16 @@ public class Lesson {
         return lessonName+" "+date+" "+startTime+" "+endTime+" "+studentName+" "+status;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Lesson lesson = (Lesson) o;
+        return weeklyRec == lesson.weeklyRec && Objects.equals(lessonName, lesson.lessonName) && Objects.equals(date, lesson.date) && Objects.equals(startTime, lesson.startTime) && Objects.equals(endTime, lesson.endTime) && Objects.equals(tutorName, lesson.tutorName);
+    }
 
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, lessonName, date, startTime, endTime, tutorName, studentName, status, weeklyRec);
+    }
 }
