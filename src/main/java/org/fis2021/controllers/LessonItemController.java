@@ -4,8 +4,12 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
+import org.dizitart.no2.objects.ObjectRepository;
 import org.fis2021.models.Lesson;
+import org.fis2021.models.Student;
+import org.fis2021.services.DatabaseService;
 import org.fis2021.services.LessonService;
+import org.fis2021.services.StudentHolder;
 
 import java.time.DayOfWeek;
 import java.time.LocalDate;
@@ -36,28 +40,48 @@ public class LessonItemController {
 
     @FXML
     void enrollButtonPressed() {
-        if (lesson.getStatus() == null) {
-            LessonService.setStatus(lesson, "pending");
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Sent pending request");
-            alert.setHeaderText("Request is pending");
-            alert.setContentText("Your request to enroll this class has been sent.");
-            alert.showAndWait();
+        ArrayList<Lesson> lessons = LessonService.getAllLessons();
+        StudentHolder studentHolder = StudentHolder.getInstance();
+        Student student = studentHolder.getStudent();
+        System.out.println(student.getUsername());
+        int cnt = 0;
+        for (Lesson lessontemp : lessons) {
+            if (lessontemp.equals(lesson) && !lessontemp.getStudentName().equals("") && !lessontemp.getStatus().equals("")) {
+                if (lessontemp.getStudentName().equals(student.getUsername()) && lessontemp.getStatus().equals("pending")) {
+                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                    alert.setTitle("Request is pending");
+                    alert.setHeaderText("Pending Request");
+                    alert.setContentText("Request for this class is already pending.");
+                    alert.showAndWait();
+                    return;
+                } else if (lessontemp.getStudentName().equals(student.getUsername()) && lessontemp.getStatus().equals("accepted")) {
+                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                    alert.setTitle("Request is accepted");
+                    alert.setHeaderText("Request already accepted");
+                    alert.setContentText("You are already enrolled in this class.");
+                    alert.showAndWait();
+                    return;
+                } else if (lessontemp.getStudentName().equals(student.getUsername()) && lessontemp.getStatus().equals("declined")) {
+                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                    alert.setTitle("Request has been already declined");
+                    alert.setHeaderText("Request already declined");
+                    alert.setContentText("DECLINED.");
+                    alert.showAndWait();
+                    return;
+                }
+            }
+            cnt += 1;
         }
-        if (lesson.getStatus().equals("pending")){
+        if (cnt == lessons.size()) {
+            LessonService.addLesson(lesson.getTutorName(), lesson.getLessonName(), lesson.getDate(), lesson.getStartTime(), lesson.getEndTime(), lesson.isWeeklyRec(), student.getUsername(), "pending");
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Request is pending");
-            alert.setHeaderText("Pending Request");
-            alert.setContentText("Request for this class is already pending.");
+            alert.setHeaderText("Request is pending.");
+            alert.setContentText("Your request has been sent.");
             alert.showAndWait();
+            return;
         }
-        if (lesson.getStatus().equals("accepted")){
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Request is accepted");
-            alert.setHeaderText("Request already accepted");
-            alert.setContentText("You are already enrolled in this class.");
-            alert.showAndWait();
-        }
+
     }
 
     public LocalDate stringToDate(String date) {

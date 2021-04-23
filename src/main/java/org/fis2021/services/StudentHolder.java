@@ -3,7 +3,7 @@ package org.fis2021.services;
 import org.fis2021.models.Student;
 
 public class StudentHolder {
-    private static StudentHolder instance;
+    private static volatile StudentHolder instance = null;
     private static Student student;
 
     private StudentHolder(){}
@@ -15,15 +15,16 @@ public class StudentHolder {
         return instance;
     }
 
-    public static void setInstance(StudentHolder instance) {
-        StudentHolder.instance = instance;
-    }
-
     public void setStudent(Student student){
         StudentHolder.student = student;
     }
 
     public Student getStudent() {
         return student;
+    }
+
+    public void resetStudent() {
+        this.instance = null;
+        this.student = null;
     }
 }

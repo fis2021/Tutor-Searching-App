@@ -4,6 +4,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.HBox;
@@ -66,7 +68,7 @@ public class RequestStudentController implements Initializable {
                 return;
             }
             for (Lesson lesson : lessons) {
-                if (lesson.getStudentName().equals(student.getUsername()) && lesson.getStatus().equals(status)) {
+                if (lesson.getStudentName() != null && lesson.getStudentName().equals(student.getUsername()) && lesson.getStatus().equals(status)) {
                     addHBox(lesson);
                 }
             }
@@ -80,8 +82,9 @@ public class RequestStudentController implements Initializable {
             scrollPanel.setVvalue(0);
             StudentHolder studentHolder = StudentHolder.getInstance();
             Student student = studentHolder.getStudent();
+            System.out.println(student.getUsername());
             for (Lesson lesson : lessons) {
-                if (lesson.getStudentName().equals(student.getUsername())) {
+                if (lesson.getStudentName() != null && lesson.getStudentName().equals(student.getUsername())) {
                     System.out.println(lesson.getStudentName());
                     addHBox(lesson);
                 }
@@ -121,6 +124,20 @@ public class RequestStudentController implements Initializable {
         Scene scene = new Scene(loadFXML("tutorlist"), 1280, 720);
         stage.setTitle("Tutor Searching App - Home Page Student");
         stage.setScene(scene);
+    }
+
+    @FXML
+    void logoutButtonPressed() throws IOException {
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Logout");
+        alert.setHeaderText("You are about to log out!");
+        alert.setContentText("Do you want to log out?");
+        if (alert.showAndWait().get() == ButtonType.OK) {
+            Stage stage = (Stage) vBox.getScene().getWindow();
+            Scene scene = new Scene(loadFXML("login"), 1280, 720);
+            stage.setTitle("Tutor Searching App - Login");
+            stage.setScene(scene);
+        }
     }
 }
 

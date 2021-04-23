@@ -1,16 +1,11 @@
 package org.fis2021.services;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.SerializationFeature;
 import org.dizitart.no2.objects.Cursor;
 import org.dizitart.no2.objects.ObjectRepository;
 import org.dizitart.no2.objects.filters.ObjectFilters;
 import org.fis2021.exceptions.UserNotFoundException;
 import org.fis2021.exceptions.UsernameAlreadyExistsException;
-import org.fis2021.models.Lesson;
 import org.fis2021.models.Student;
-import org.fis2021.models.Tutor;
 
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
