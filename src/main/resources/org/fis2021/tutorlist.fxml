@@ -68,7 +68,7 @@
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Button layoutX="10.0" layoutY="276.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="150.0" styleClass="buttonmenu" stylesheets="@style/style.css" text="Account">
+                  <Button layoutX="10.0" layoutY="276.0" mnemonicParsing="false" onAction="#switchToAccount" prefHeight="37.0" prefWidth="150.0" styleClass="buttonmenu" stylesheets="@style/style.css" text="Account">
                      <graphic>
                         <ImageView fitHeight="46.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -90,14 +90,14 @@
             </VBox>
             <VBox alignment="CENTER" prefHeight="720.0" prefWidth="1130.0">
                <children>
-                  <HBox prefHeight="150.0" prefWidth="200.0">
+                  <HBox prefHeight="191.0" prefWidth="1130.0">
                      <children>
-                        <Label prefHeight="100.0" prefWidth="286.0" text="        Tutor List" textFill="#22156c">
+                        <Label prefHeight="100.0" prefWidth="286.0" text="      Tutor List" textFill="#22156c">
                            <font>
                               <Font name="System Bold" size="24.0" />
                            </font>
                         </Label>
-                        <AnchorPane prefHeight="100.0" prefWidth="381.0" />
+                        <AnchorPane prefHeight="110.0" prefWidth="382.0" />
                         <HBox alignment="CENTER" prefHeight="54.0" prefWidth="398.0" style="-fx-background-color: #ffffff; -fx-background-radius: 200;">
                            <children>
                               <TextField fx:id="searchTextField" prefHeight="26.0" prefWidth="246.0" promptText="Type here to search" style="-fx-background-color: transparent;" />
@@ -108,12 +108,12 @@
                               </Button>
                            </children>
                            <HBox.margin>
-                              <Insets bottom="10.0" top="10.0" />
+                              <Insets bottom="30.0" top="30.0" />
                            </HBox.margin>
                         </HBox>
                      </children>
                   </HBox>
-                  <Separator prefWidth="200.0" />
+                  <Separator prefHeight="0.0" prefWidth="1130.0" />
                   <HBox fx:id="headerHBox" alignment="CENTER" prefHeight="115.0" prefWidth="1030.0" style="-fx-background-color: rgb(34, 21, 108);">
                      <VBox.margin>
                         <Insets left="40.0" right="60.0" top="20.0" />

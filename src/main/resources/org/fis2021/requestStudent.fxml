@@ -30,9 +30,9 @@
                <children>
                   <AnchorPane prefHeight="169.0" prefWidth="150.0">
                      <children>
-                        <Button mnemonicParsing="false" onAction="#switchToHome" prefHeight="49.0" prefWidth="150.0" styleClass="buttonmenu" stylesheets="@style/style.css" text="Home" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="63.0">
+                        <Button mnemonicParsing="false" onAction="#switchToHome" prefHeight="37.0" prefWidth="150.0" styleClass="buttonmenu" stylesheets="@style/style.css" text="Home" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="63.0">
                            <graphic>
-                              <ImageView fitHeight="45.0" fitWidth="36.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fitHeight="46.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@../../pictures/home-256.png" />
                                  </image>
@@ -41,7 +41,7 @@
                         </Button>
                      </children>
                   </AnchorPane>
-                  <Button mnemonicParsing="false" onAction="#switchToTutors" prefHeight="26.0" prefWidth="170.0" styleClass="buttonmenu" stylesheets="@style/style.css" text="Tutors">
+                  <Button mnemonicParsing="false" onAction="#switchToTutors" prefHeight="37.0" prefWidth="150.0" styleClass="buttonmenu" stylesheets="@style/style.css" text="Tutors">
                      <graphic>
                         <ImageView fitHeight="46.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -50,36 +50,36 @@
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Button layoutX="10.0" layoutY="180.0" mnemonicParsing="false" onAction="#switchToRequests" prefHeight="26.0" prefWidth="170.0" styleClass="buttonmenu" stylesheets="@style/style.css" text="Requests">
+                  <Button layoutX="10.0" layoutY="180.0" mnemonicParsing="false" onAction="#switchToRequests" prefHeight="37.0" prefWidth="150.0" styleClass="buttonmenu" stylesheets="@style/style.css" text="Requests">
                      <graphic>
-                        <ImageView fitHeight="45.0" fitWidth="36.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="46.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../../pictures/white-check-icon-2.jpg" />
                            </image>
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Button layoutX="10.0" layoutY="228.0" mnemonicParsing="false" onAction="#switchToCalendar" prefHeight="26.0" prefWidth="170.0" styleClass="buttonmenu" stylesheets="@style/style.css" text="Calendar">
+                  <Button layoutX="10.0" layoutY="228.0" mnemonicParsing="false" onAction="#switchToCalendar" prefHeight="37.0" prefWidth="150.0" styleClass="buttonmenu" stylesheets="@style/style.css" text="Calendar">
                      <graphic>
-                        <ImageView fitHeight="45.0" fitWidth="36.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="46.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../../pictures/calendar-icon-white.png" />
                            </image>
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Button layoutX="10.0" layoutY="277.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="170.0" styleClass="buttonmenu" stylesheets="@style/style.css" text="Account">
+                  <Button layoutX="10.0" layoutY="277.0" mnemonicParsing="false" onAction="#switchToAccount" prefHeight="37.0" prefWidth="150.0" styleClass="buttonmenu" stylesheets="@style/style.css" text="Account">
                      <graphic>
-                        <ImageView fitHeight="45.0" fitWidth="36.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="46.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../../pictures/account.png" />
                            </image>
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Button layoutX="10.0" layoutY="485.0" mnemonicParsing="false" onAction="#logoutButtonPressed" prefHeight="26.0" prefWidth="170.0" styleClass="buttonmenu" stylesheets="@style/style.css" text="Logout">
+                  <Button layoutX="10.0" layoutY="485.0" mnemonicParsing="false" onAction="#logoutButtonPressed" prefHeight="37.0" prefWidth="170.0" styleClass="buttonmenu" stylesheets="@style/style.css" text="Logout">
                      <graphic>
-                        <ImageView fx:id="logoutButtonPressed" fitHeight="45.0" fitWidth="36.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="logoutButtonPressed" fitHeight="46.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../../pictures/logout.png" />
                            </image>
@@ -90,11 +90,15 @@
             </VBox>
             <VBox prefHeight="720.0" prefWidth="1130.0">
                <children>
-                  <Label prefHeight="150.0" prefWidth="1130.0" text="              My Requests" textFill="#22156c">
-                     <font>
-                        <Font name="System Bold" size="24.0" />
-                     </font>
-                  </Label>
+                  <VBox prefHeight="100.0" prefWidth="100.0">
+                     <children>
+                        <Label prefHeight="91.0" prefWidth="1130.0" text="      My Requests" textFill="#22156c">
+                           <font>
+                              <Font name="System Bold" size="24.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </VBox>
                   <VBox alignment="CENTER" prefHeight="57.0" prefWidth="1130.0">
                      <children>
                         <Separator prefWidth="200.0" />

@@ -49,7 +49,11 @@ public class RequestItemController {
         startTimeField.setText(lesson.getStartTime());
         endTimeField.setText(lesson.getEndTime());
         tutorNameField.setText(lesson.getTutorName());
-        statusField.setText(lesson.getStatus());
+        if (lesson.getStatus().equals("declined")) {
+            statusField.setText(lesson.getStatus()+": "+lesson.getDeclinedMessage());
+        }else {
+            statusField.setText(lesson.getStatus());
+        }
         if (lesson.isWeeklyRec()){
             freqLabel.setText("weekly");
         }

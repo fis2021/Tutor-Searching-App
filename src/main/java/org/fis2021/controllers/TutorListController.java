@@ -142,11 +142,19 @@ public class TutorListController implements Initializable {
     }
 
     @FXML
+    void switchToAccount() throws IOException {
+        Stage stage = (Stage) vBox.getScene().getWindow();
+        Scene scene = new Scene(loadFXML("accountStudent"), 1280, 720);
+        stage.setTitle("Tutor Searching App - Account");
+        stage.setScene(scene);
+    }
+
+    @FXML
     void logoutButtonPressed() throws IOException {
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setTitle("Logout");
         alert.setHeaderText("You are about to log out!");
-        alert.setContentText("Do you want to log out?");
+        alert.setContentText("Are you sure you want to log out?");
         if (alert.showAndWait().get() == ButtonType.OK) {
             Stage stage = (Stage) vBox.getScene().getWindow();
             Scene scene = new Scene(loadFXML("login"), 1280, 720);
