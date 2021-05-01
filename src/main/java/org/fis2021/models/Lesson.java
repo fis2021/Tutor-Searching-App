@@ -9,7 +9,7 @@ public class Lesson {
     @Id
     String id;
 
-    private String lessonName, date, startTime, endTime, tutorName, studentName, status;
+    private String lessonName, date, startTime, endTime, tutorName, studentName, status, declinedMessage;
     //status: pending, accepted, declined
     boolean weeklyRec;
 
@@ -26,6 +26,14 @@ public class Lesson {
         this.weeklyRec = weeklyRec;
         this.studentName = studentName;
         this.status = status;
+    }
+
+    public String getDeclinedMessage() {
+        return declinedMessage;
+    }
+
+    public void setDeclinedMessage(String declinedMessage) {
+        this.declinedMessage = declinedMessage;
     }
 
     public boolean isWeeklyRec() {
