@@ -114,13 +114,18 @@ public class LoginController {
 
             String encoded_password = TutorService.encodePassword(usernameField.getText(), passwordFiled.getText());
 
-            try {
+            try{
                 String stored_password = TutorService.getHashedUserPassword(usernameField.getText());
-                if (stored_password.equals(encoded_password)) {
+                if(stored_password.equals(encoded_password)){
                     invalidCredentialsLabel.setText(String.format("Successfully logged in as %s!", usernameField.getText()));
+                    Stage stage = (Stage) invalidCredentialsLabel.getScene().getWindow();
+                    Scene scene = new Scene(loadFXML("homepageTutor"));
+                    stage.setTitle("Tutor Searching App - Tutor Home Page");
+                    stage.setScene(scene);
                     return;
                 }
-            } catch (UserNotFoundException e) {
+
+            } catch(UserNotFoundException | IOException e){
                 invalidCredentialsLabel.setText(e.getMessage());
                 return;
             }
