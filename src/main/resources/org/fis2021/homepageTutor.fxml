@@ -28,7 +28,7 @@
                 <VBox prefHeight="720.0" prefWidth="150.0" spacing="40.0" style="-fx-background-color: rgb(34, 21, 108);">
                     <children>
                         <AnchorPane prefHeight="169.0" prefWidth="150.0" />
-                        <Button layoutX="10.0" layoutY="210.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="192.0" styleClass="buttonmenu" stylesheets="@style/style.css" text="Students">
+                        <Button layoutX="10.0" layoutY="210.0" mnemonicParsing="false" onAction="#switchToStudentList" prefHeight="26.0" prefWidth="192.0" styleClass="buttonmenu" stylesheets="@style/style.css" text="Students">
                             <graphic>
                                 <ImageView fitHeight="46.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
                                     <image>
