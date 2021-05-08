@@ -10,6 +10,8 @@ import org.fis2021.models.Student;
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.util.ArrayList;
+import java.util.Comparator;
 
 public class StudentService {
 
@@ -37,6 +39,15 @@ public class StudentService {
             return student;
         }
         throw new UserNotFoundException(username);
+    }
+
+    public static ArrayList<Student> getAllStudents() {
+        ArrayList<Student> studentList = new ArrayList<>();
+        for(Student student : studentRepository.find()){
+            studentList.add(student);
+        }
+        studentList.sort(Comparator.comparing(Student::getNume));
+        return studentList;
     }
 
     public static String encodePassword(String salt, String password) {
