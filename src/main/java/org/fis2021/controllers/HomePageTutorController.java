@@ -58,4 +58,12 @@ public class HomePageTutorController implements Initializable {
             e.printStackTrace();
         }
     }
+
+    @FXML
+    void switchToStudentList() throws IOException {
+        Stage stage = (Stage) gridPane.getScene().getWindow();
+        Scene scene = new Scene(loadFXML("studentList"), 1280, 720);
+        stage.setTitle("Tutor Searching App - Student List");
+        stage.setScene(scene);
+    }
 }
