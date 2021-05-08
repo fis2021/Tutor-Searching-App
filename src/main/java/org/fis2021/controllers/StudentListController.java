@@ -6,6 +6,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
@@ -32,10 +33,13 @@ public class StudentListController implements Initializable{
     private HBox headerHBox;
 
     @FXML
-    private Label tutorNotFoundLabel;
+    private Label studentNotFoundLabel;
 
     @FXML
     private VBox vBox;
+
+    @FXML
+    private ScrollPane scrollPane;
 
     private ArrayList<Student> studentArrayList = new ArrayList<>();
 
@@ -64,6 +68,7 @@ public class StudentListController implements Initializable{
 
     void loadStudentInfoItem(Student student) {
         try {
+            scrollPane.setVvalue(0);
             headerHBox.setVisible(false);
             vBox.getChildren().clear();
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/fis2021/studentInfo.fxml"));
@@ -79,22 +84,28 @@ public class StudentListController implements Initializable{
     @FXML
     void searchButtonPressed() {
         try {
+            scrollPane.setVvalue(0);
+            studentNotFoundLabel.setVisible(false);
             headerHBox.setVisible(true);
             if (searchTextField.getText() != null) {
                 vBox.getChildren().clear();
                 studentArrayList = StudentService.getAllStudents();
+                int cnt = 1;
                 for (Student student : studentArrayList) {
-                    if (student.getNume().equals(searchTextField.getText())) {
+                    if ((student.getNume().toLowerCase()).indexOf(searchTextField.getText().toLowerCase()) == 0 || (student.getNume().toLowerCase().substring(student.getNume().indexOf(" ") + 1)).indexOf(searchTextField.getText()) == 0) {
+                        cnt = 0;
                         FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/fis2021/studentListItem.fxml"));
                         HBox hBox = loader.load();
                         hBoxEventHandler(hBox, student);
                         StudentListItemController studentListItemController = loader.getController();
                         studentListItemController.setInfo(student);
                         vBox.getChildren().add(hBox);
-                        return;
                     }
                 }
-                tutorNotFoundLabel.setText("Student not found");
+                if (cnt == 1) {
+                    studentNotFoundLabel.setVisible(true);
+                    studentNotFoundLabel.setText("Student not found");
+                }
             }
         }catch(IOException e){
             e.printStackTrace();
