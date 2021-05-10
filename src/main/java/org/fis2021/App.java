@@ -21,19 +21,13 @@ public class App extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-        initDirectory();
+        FileSystemService.initDirectory();
         DatabaseService.initDatabase();
         scene = new Scene(loadFXML("login"), 1280, 720);
         stage.setTitle("Tutor Searching App - Login");
         stage.setScene(scene);
         stage.setResizable(false);
         stage.show();
-    }
-
-    private void initDirectory() {
-        Path applicationHomePath = FileSystemService.APPLICATION_HOME_PATH;
-        if (!Files.exists(applicationHomePath))
-            applicationHomePath.toFile().mkdirs();
     }
 
     public static void setRoot(String fxml) throws IOException {
