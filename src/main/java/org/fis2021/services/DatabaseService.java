@@ -15,6 +15,7 @@ public class DatabaseService {
     private static ObjectRepository<Lesson> lessonRepository;
 
     public static void initDatabase() {
+        FileSystemService.initDirectory();
         database = Nitrite.builder()
                 .filePath(getPathToFile("registration.db").toFile())
                 .openOrCreate("test", "test");
