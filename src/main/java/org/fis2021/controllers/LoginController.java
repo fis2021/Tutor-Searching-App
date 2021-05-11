@@ -11,8 +11,10 @@ import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import org.fis2021.exceptions.UserNotFoundException;
 import org.fis2021.models.Student;
+import org.fis2021.models.Tutor;
 import org.fis2021.services.StudentHolder;
 import org.fis2021.services.StudentService;
+import org.fis2021.services.TutorHolder;
 import org.fis2021.services.TutorService;
 
 import java.io.IOException;
@@ -124,6 +126,9 @@ public class LoginController {
             try{
                 String stored_password = TutorService.getHashedUserPassword(usernameField.getText());
                 if(stored_password.equals(encoded_password)){
+                    Tutor tutor = TutorService.getTutor(usernameField.getText());
+                    TutorHolder tutorHolder = TutorHolder.getInstance();
+                    tutorHolder.setTutor(tutor);
                     invalidCredentialsLabel.setText(String.format("Successfully logged in as %s!", usernameField.getText()));
                     Stage stage = (Stage) invalidCredentialsLabel.getScene().getWindow();
                     Scene scene = new Scene(loadFXML("homepageTutor"));
