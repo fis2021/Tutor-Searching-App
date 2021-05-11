@@ -68,4 +68,21 @@ class TutorServiceTest {
             TutorService.getTutor("ana.ana");
         });
     }
+
+    @Test
+    @DisplayName("Tutor already exists")
+    void testTutorAlreadyExists() {
+        assertThrows(UsernameAlreadyExistsException.class, () -> {
+            TutorService.addTutor("Ana", "ana.ana1", "abcd", "fis", "cti");
+            TutorService.checkTutorDoesNotAlreadyExist("ana.ana1");
+        });
+    }
+
+    @Test
+    @DisplayName("Password is encoded")
+    void testPasswordIsEncode() throws UsernameAlreadyExistsException {
+        TutorService.addTutor("Ana", "ana.ana1", "abcd", "fis", "cti");
+        Tutor tutor = TutorService.getAllTutors().get(0);
+        assertThat(tutor.getParola()).isEqualTo(TutorService.encodePassword("ana.ana1", "abcd"));
+    }
 }

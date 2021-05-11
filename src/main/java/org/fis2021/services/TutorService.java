@@ -27,7 +27,7 @@ public class TutorService {
         tutorRepository.insert(new Tutor(nume, username, encodePassword(username,parola), materie, specializare));
     }
 
-    private static void checkTutorDoesNotAlreadyExist(String username) throws UsernameAlreadyExistsException {
+    static void checkTutorDoesNotAlreadyExist(String username) throws UsernameAlreadyExistsException {
         for (Tutor tutor : tutorRepository.find()) {
             if (Objects.equals(username, tutor.getUsername()))
                 throw new UsernameAlreadyExistsException(username);
