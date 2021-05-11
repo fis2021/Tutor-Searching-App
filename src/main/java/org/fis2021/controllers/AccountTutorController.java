@@ -173,7 +173,6 @@ public class AccountTutorController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         TutorHolder tutorHolder = TutorHolder.getInstance();
         tutor = tutorHolder.getTutor();
-        System.out.println(tutor.getNume()+" "+tutor.getMaterie()+" "+tutor.getSpecializare());
         nameTextfield.setText(tutor.getNume());
         subjectTextfield.setText(tutor.getMaterie());
         specializationTextield.setText(tutor.getSpecializare());
