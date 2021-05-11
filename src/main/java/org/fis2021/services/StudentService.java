@@ -26,7 +26,7 @@ public class StudentService {
         studentRepository.insert(new Student(nume, facultate, specializare, nrMatricol, username, encodePassword(username,parola)));
     }
 
-    private static void checkStudentDoesNotAlreadyExist(String username) throws UsernameAlreadyExistsException {
+    static void checkStudentDoesNotAlreadyExist(String username) throws UsernameAlreadyExistsException {
         for (Student student : studentRepository.find()) {
             if (username.equals(student.getUsername()))
                 throw new UsernameAlreadyExistsException(username);

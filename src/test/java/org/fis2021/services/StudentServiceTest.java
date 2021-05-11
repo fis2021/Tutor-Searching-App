@@ -67,4 +67,22 @@ class StudentServiceTest {
             StudentService.getStudent("ana.ana");
         });
     }
+
+    @Test
+    @DisplayName("User already exists")
+    void testUserAlreadyExists() {
+        assertThrows(UsernameAlreadyExistsException.class, () ->{
+            StudentService.addStudent("Ana", "AC", "CTI", "123", "ana.ana1", "abcd");
+            StudentService.checkStudentDoesNotAlreadyExist("ana.ana1");
+        });
+
+    }
+
+    @Test
+    @DisplayName("Password is encoded")
+    void testPasswordIsEncoded() throws UsernameAlreadyExistsException {
+        StudentService.addStudent("Ana", "AC", "CTI", "123", "ana.ana", "abcd");
+        Student student = StudentService.getAllStudents().get(0);
+        assertThat(student.getParola()).isEqualTo(StudentService.encodePassword("ana.ana", "abcd"));
+    }
 }
