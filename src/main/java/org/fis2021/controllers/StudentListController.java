@@ -4,10 +4,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.ScrollPane;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
@@ -126,6 +123,20 @@ public class StudentListController implements Initializable{
         Scene scene = new Scene(loadFXML("studentList"), 1280, 720);
         stage.setTitle("Tutor Searching App - Student List");
         stage.setScene(scene);
+    }
+
+    @FXML
+    void logoutButtonPressed() throws IOException {
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Logout");
+        alert.setHeaderText("You are about to log out!");
+        alert.setContentText("Are you sure you want to log out?");
+        if (alert.showAndWait().get() == ButtonType.OK) {
+            Stage stage = (Stage) vBox.getScene().getWindow();
+            Scene scene = new Scene(loadFXML("login"), 1280, 720);
+            stage.setTitle("Tutor Searching App - Login");
+            stage.setScene(scene);
+        }
     }
 
     void hBoxEventHandler(HBox hBox, Student student){
