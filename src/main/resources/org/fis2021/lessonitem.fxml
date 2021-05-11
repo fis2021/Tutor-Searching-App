@@ -34,7 +34,7 @@
             <Font size="13.0" />
          </font>
       </Label>
-      <Button mnemonicParsing="false" onAction="#enrollButtonPressed" style="-fx-background-color: rgb(34, 21, 108); -fx-background-radius: 15;" text="Enroll" textFill="WHITE">
+      <Button mnemonicParsing="false" onAction="#enrollButtonPressed" id="enrollButton" style="-fx-background-color: rgb(34, 21, 108); -fx-background-radius: 15;" text="Enroll" textFill="WHITE">
          <font>
             <Font name="System Bold" size="13.0" />
          </font>
