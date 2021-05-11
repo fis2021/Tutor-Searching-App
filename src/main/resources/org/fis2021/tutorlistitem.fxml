@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
-<HBox fx:id="hBox" alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="940.0" spacing="30.0" styleClass="tutorlistitem" stylesheets="@style/style.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.fis2021.controllers.TutorListItemController">
+<HBox fx:id="hBox" id="tutorListHBox" alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="940.0" spacing="30.0" styleClass="tutorlistitem" stylesheets="@style/style.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.fis2021.controllers.TutorListItemController">
    <children>
       <HBox alignment="CENTER" prefHeight="58.0" prefWidth="98.0">
          <children>
@@ -17,15 +17,15 @@
                </image>
             </ImageView>
          </children></HBox>
-      <Label fx:id="numeLabel" prefHeight="58.0" prefWidth="226.0" text="Name" textFill="#22156c">
+      <Label fx:id="numeLabel" id="tutorName" prefHeight="58.0" prefWidth="226.0" text="Name" textFill="#22156c">
          <font>
             <Font name="System Bold" size="14.0" />
          </font></Label>
-      <Label fx:id="materieLabel" layoutX="252.0" layoutY="10.0" prefHeight="100.0" prefWidth="200.0" text="Subject" textFill="#22156c">
+      <Label fx:id="materieLabel" id="className" layoutX="252.0" layoutY="10.0" prefHeight="100.0" prefWidth="200.0" text="Subject" textFill="#22156c">
          <font>
             <Font name="System Bold" size="14.0" />
          </font></Label>
-      <Label fx:id="specializareLabel" alignment="CENTER" layoutX="552.0" layoutY="10.0" prefHeight="100.0" prefWidth="200.0" text="Department" textFill="#22156c">
+      <Label fx:id="specializareLabel" id="departmentName" alignment="CENTER" layoutX="552.0" layoutY="10.0" prefHeight="100.0" prefWidth="200.0" text="Department" textFill="#22156c">
          <font>
             <Font name="System Bold" size="14.0" />
          </font></Label>

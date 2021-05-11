@@ -41,7 +41,7 @@
                         </Button>
                      </children>
                   </AnchorPane>
-                  <Button mnemonicParsing="false" onAction="#switchToTutors" prefHeight="37.0" prefWidth="150.0" styleClass="buttonmenu" stylesheets="@style/style.css" text="Tutors">
+                  <Button mnemonicParsing="false" onAction="#switchToTutors" id="tutorlistButton" prefHeight="37.0" prefWidth="150.0" styleClass="buttonmenu" stylesheets="@style/style.css" text="Tutors">
                      <graphic>
                         <ImageView fitHeight="46.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -50,7 +50,7 @@
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Button layoutX="10.0" layoutY="180.0" mnemonicParsing="false" onAction="#switchToRequests" prefHeight="37.0" prefWidth="150.0" styleClass="buttonmenu" stylesheets="@style/style.css" text="Requests">
+                  <Button layoutX="10.0" layoutY="180.0" mnemonicParsing="false" onAction="#switchToRequests" id="requestButton" prefHeight="37.0" prefWidth="150.0" styleClass="buttonmenu" stylesheets="@style/style.css" text="Requests">
                      <graphic>
                         <ImageView fitHeight="46.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -59,7 +59,7 @@
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Button layoutX="10.0" layoutY="228.0" mnemonicParsing="false" onAction="#switchToCalendar" prefHeight="37.0" prefWidth="150.0" styleClass="buttonmenu" stylesheets="@style/style.css" text="Calendar">
+                  <Button layoutX="10.0" layoutY="228.0" mnemonicParsing="false" onAction="#switchToCalendar" id="calendarButton" prefHeight="37.0" prefWidth="150.0" styleClass="buttonmenu" stylesheets="@style/style.css" text="Calendar">
                      <graphic>
                         <ImageView fitHeight="46.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -68,7 +68,7 @@
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Button layoutX="10.0" layoutY="276.0" mnemonicParsing="false" onAction="#switchToAccount" prefHeight="37.0" prefWidth="150.0" styleClass="buttonmenu" stylesheets="@style/style.css" text="Account">
+                  <Button layoutX="10.0" layoutY="276.0" mnemonicParsing="false" onAction="#switchToAccount" id="accountButton" prefHeight="37.0" prefWidth="150.0" styleClass="buttonmenu" stylesheets="@style/style.css" text="Account">
                      <graphic>
                         <ImageView fitHeight="46.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -77,7 +77,7 @@
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Button layoutX="10.0" layoutY="484.0" mnemonicParsing="false" onAction="#logoutButtonPressed" prefHeight="37.0" prefWidth="150.0" styleClass="buttonmenu" stylesheets="@style/style.css" text="Logout">
+                  <Button layoutX="10.0" layoutY="484.0" mnemonicParsing="false" onAction="#logoutButtonPressed" id="logoutButton" prefHeight="37.0" prefWidth="150.0" styleClass="buttonmenu" stylesheets="@style/style.css" text="Logout">
                      <graphic>
                         <ImageView fitHeight="46.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -100,8 +100,8 @@
                         <AnchorPane prefHeight="110.0" prefWidth="382.0" />
                         <HBox alignment="CENTER" prefHeight="54.0" prefWidth="398.0" style="-fx-background-color: #ffffff; -fx-background-radius: 200;">
                            <children>
-                              <TextField fx:id="searchTextField" prefHeight="26.0" prefWidth="246.0" promptText="Type here to search" style="-fx-background-color: transparent;" />
-                              <Button mnemonicParsing="false" onAction="#searchButtonPressed" prefHeight="26.0" prefWidth="70.0" style="-fx-background-color: rgb(34, 21, 108); -fx-background-radius: 15;" text="Search" textFill="WHITE">
+                              <TextField fx:id="searchTextField" id="tutorSearchField" prefHeight="26.0" prefWidth="246.0" promptText="Type here to search" style="-fx-background-color: transparent;" />
+                              <Button mnemonicParsing="false" onAction="#searchButtonPressed" id="tutorSearchButton" prefHeight="26.0" prefWidth="70.0" style="-fx-background-color: rgb(34, 21, 108); -fx-background-radius: 15;" text="Search" textFill="WHITE">
                                  <font>
                                     <Font name="System Bold" size="13.0" />
                                  </font>
@@ -126,7 +126,7 @@
                         </Label>
                      </children>
                   </HBox>
-                  <Label fx:id="tutorNotFoundLabel" textFill="#b11d1d">
+                  <Label fx:id="tutorNotFoundLabel" id="tutorNotFound" textFill="#b11d1d">
                      <VBox.margin>
                         <Insets left="100.0" />
                      </VBox.margin>
