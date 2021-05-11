@@ -21,18 +21,18 @@
                   <Image url="@../../pictures/Title.png" />
                </image>
             </ImageView>
-            <Button fx:id="loginButton" layoutX="580.0" layoutY="389.0" mnemonicParsing="false" onAction="#login" prefHeight="40.0" prefWidth="120.0" text="Login" textFill="#22156c">
+            <Button fx:id="loginButton" id="loginButton" layoutX="580.0" layoutY="389.0" mnemonicParsing="false" onAction="#login" prefHeight="40.0" prefWidth="120.0" text="Login" textFill="#22156c">
                <font>
                   <Font size="18.0" />
                </font>
             </Button>
-            <ChoiceBox fx:id="roleBox" layoutX="616.0" layoutY="318.0" prefHeight="39.0" prefWidth="224.0" />
-            <TextField fx:id="usernameField" layoutX="616.0" layoutY="217.0">
+            <ChoiceBox fx:id="roleBox" id="role" layoutX="616.0" layoutY="318.0" prefHeight="39.0" prefWidth="224.0" />
+            <TextField fx:id="usernameField" id="username" layoutX="616.0" layoutY="217.0">
                <font>
                   <Font size="18.0" />
                </font>
             </TextField>
-            <PasswordField fx:id="passwordFiled" layoutX="616.0" layoutY="267.0">
+            <PasswordField fx:id="passwordFiled" id="password" layoutX="616.0" layoutY="267.0">
                <font>
                   <Font size="18.0" />
                </font>
