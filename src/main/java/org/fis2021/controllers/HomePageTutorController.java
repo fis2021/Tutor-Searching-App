@@ -5,6 +5,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Region;
 import javafx.scene.layout.VBox;
@@ -65,5 +67,19 @@ public class HomePageTutorController implements Initializable {
         Scene scene = new Scene(loadFXML("studentList"), 1280, 720);
         stage.setTitle("Tutor Searching App - Student List");
         stage.setScene(scene);
+    }
+
+    @FXML
+    void logoutButtonPressed() throws IOException {
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Logout");
+        alert.setHeaderText("You are about to log out!");
+        alert.setContentText("Are you sure you want to log out?");
+        if (alert.showAndWait().get() == ButtonType.OK) {
+            Stage stage = (Stage) gridPane.getScene().getWindow();
+            Scene scene = new Scene(loadFXML("login"), 1280, 720);
+            stage.setTitle("Tutor Searching App - Login");
+            stage.setScene(scene);
+        }
     }
 }
