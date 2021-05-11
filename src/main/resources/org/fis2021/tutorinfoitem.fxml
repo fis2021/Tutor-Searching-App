@@ -46,27 +46,27 @@
             </VBox>
             <VBox alignment="CENTER" prefHeight="304.0" prefWidth="334.0" spacing="20.0">
                <children>
-                  <Label fx:id="nameLabel" textFill="#22156c">
+                  <Label fx:id="nameLabel" id="tutorInfoName" textFill="#22156c">
                      <font>
                         <Font name="System Bold" size="24.0" />
                      </font>
                   </Label>
-                  <Label fx:id="subjectLabel" layoutX="148.0" layoutY="144.0" textFill="#22156c">
+                  <Label fx:id="subjectLabel" id="tutorInfoSubject" layoutX="148.0" layoutY="144.0" textFill="#22156c">
                      <font>
                         <Font name="System Bold" size="24.0" />
                      </font>
                   </Label>
-                  <Label fx:id="departmentLabel" layoutX="148.0" layoutY="172.0" textFill="#22156c">
+                  <Label fx:id="departmentLabel"  id="tutorInfoDepartment" layoutX="148.0" layoutY="172.0" textFill="#22156c">
                      <font>
                         <Font name="System Bold" size="24.0" />
                      </font>
                   </Label>
-                  <Label fx:id="usernameLabel" layoutX="148.0" layoutY="200.0" textFill="#22156c">
+                  <Label fx:id="usernameLabel" id="tutorInfoUsername" layoutX="148.0" layoutY="200.0" textFill="#22156c">
                      <font>
                         <Font name="System Bold" size="24.0" />
                      </font>
                   </Label>
-                  <Label fx:id="ratingLabel" textFill="#22156c">
+                  <Label fx:id="ratingLabel" id="tutorInfoRating" textFill="#22156c">
                      <font>
                         <Font name="System Bold" size="24.0" />
                      </font>
@@ -103,7 +103,7 @@
                </font>
             </Label>
             <AnchorPane prefHeight="221.0" prefWidth="57.0" />
-            <ListView fx:id="listView" prefHeight="221.0" prefWidth="440.0" stylesheets="@style/tableviewlessons.css">
+            <ListView fx:id="listView" id="lessonsListView" prefHeight="221.0" prefWidth="440.0" stylesheets="@style/tableviewlessons.css">
                <styleClass>
                   <String fx:value="list-view" />
                   <String fx:value="cell" />
