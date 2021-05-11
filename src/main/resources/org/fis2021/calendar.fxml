@@ -25,7 +25,7 @@
                <children>
                   <AnchorPane prefHeight="169.0" prefWidth="150.0">
                      <children>
-                        <Button layoutX="49.0" layoutY="72.0" mnemonicParsing="false" onAction="#switchToHome" prefHeight="37.0" styleClass="buttonmenu" stylesheets="@style/style.css" text="Home" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="63.0">
+                        <Button layoutX="49.0" layoutY="72.0" mnemonicParsing="false" onAction="#switchToHome" id="homeButton" prefHeight="37.0" styleClass="buttonmenu" stylesheets="@style/style.css" text="Home" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="63.0">
                            <graphic>
                               <ImageView fitHeight="46.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -36,7 +36,7 @@
                         </Button>
                      </children>
                   </AnchorPane>
-                  <Button mnemonicParsing="false" onAction="#switchToTutors" prefHeight="37.0" prefWidth="150.0" styleClass="buttonmenu" stylesheets="@style/style.css" text="Tutors">
+                  <Button mnemonicParsing="false" onAction="#switchToTutors" id="tutorsButton" prefHeight="37.0" prefWidth="150.0" styleClass="buttonmenu" stylesheets="@style/style.css" text="Tutors">
                      <graphic>
                         <ImageView fitHeight="46.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
                            <image>
