@@ -73,7 +73,7 @@ public class LessonItemController {
             cnt += 1;
         }
         if (cnt == lessons.size()) {
-            LessonService.addLesson(lesson.getTutorName(), lesson.getLessonName(), lesson.getDate(), lesson.getStartTime(), lesson.getEndTime(), lesson.isWeeklyRec(), student.getUsername(), "pending");
+            LessonService.addLesson(lesson.getTutorName(), lesson.getLessonName(), lesson.getDate(), lesson.getStartTime(), lesson.getEndTime(), lesson.isWeeklyRec(), student.getUsername(), "pending", "");
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Request is pending");
             alert.setHeaderText("Request is pending.");

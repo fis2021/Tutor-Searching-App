@@ -38,7 +38,7 @@ public class RequestStudentController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        diplayChoiceBox.getItems().addAll("All", "Accepted", "Pending", "Declined");
+        diplayChoiceBox.getItems().addAll("All", "Accepted", "Pending", "Declined", "Removed");
         displayAll();
         diplayChoiceBox.getSelectionModel().selectedItemProperty().addListener((v, oldValue, newValue) -> {
             try {

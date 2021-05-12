@@ -37,13 +37,13 @@ class TutorListTest {
         TutorService.addTutor("Alexandra", "alexandra.alexandra", "abcd", "MAC", "CTI");
         TutorService.addTutor("Andrei", "andrei.andrei", "abcd", "MAC", "CTI");
         StudentService.addStudent("Ana", "AC", "CTI", "LM123", "ana.ana", "abcd");
-        LessonService.addLesson("Andrei", "Lab MAC", "12 05 2021", "08:00", "10:00", true, "", "");
-        LessonService.addLesson("Andrei", "Lab MAC", "12 05 2021", "08:00", "10:00", true, "ana.ana", "pending");
-        LessonService.addLesson("Alexandra", "Lab MAC", "12 05 2021", "08:00", "10:00", true, "", "");
-        LessonService.addLesson("Alexandra", "Lab MAC", "12 05 2021", "08:00", "10:00", true, "ana.ana", "declined");
-        LessonService.addLesson("Vlad", "Lab FIS", "11 05 2021", "12:00", "14:00", true, "","");
-        LessonService.addLesson("Vlad", "Lab FIS", "11 05 2021", "12:00", "14:00", true,"ana.ana", "accepted");
-        LessonService.addLesson("Vlad", "Lab FIS", "10 05 2021", "10:00", "12:00",true, "", "");
+        LessonService.addLesson("Andrei", "Lab MAC", "12 05 2021", "08:00", "10:00", true, "", "", "");
+        LessonService.addLesson("Andrei", "Lab MAC", "12 05 2021", "08:00", "10:00", true, "ana.ana", "pending", "");
+        LessonService.addLesson("Alexandra", "Lab MAC", "12 05 2021", "08:00", "10:00", true, "", "", "");
+        LessonService.addLesson("Alexandra", "Lab MAC", "12 05 2021", "08:00", "10:00", true, "ana.ana", "declined", "too many students");
+        LessonService.addLesson("Vlad", "Lab FIS", "11 05 2021", "12:00", "14:00", true, "","", "");
+        LessonService.addLesson("Vlad", "Lab FIS", "11 05 2021", "12:00", "14:00", true,"ana.ana", "accepted", "");
+        LessonService.addLesson("Vlad", "Lab FIS", "10 05 2021", "10:00", "12:00",true, "", "", "");
     }
 
     @Start
