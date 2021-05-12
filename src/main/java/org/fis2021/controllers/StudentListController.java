@@ -8,8 +8,13 @@ import javafx.scene.control.*;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import org.fis2021.exceptions.UserNotFoundException;
+import org.fis2021.models.Lesson;
 import org.fis2021.models.Student;
+import org.fis2021.models.Tutor;
+import org.fis2021.services.LessonService;
 import org.fis2021.services.StudentService;
+import org.fis2021.services.TutorHolder;
 
 import java.io.IOException;
 import java.net.URL;
@@ -39,6 +44,7 @@ public class StudentListController implements Initializable{
     private ScrollPane scrollPane;
 
     private ArrayList<Student> studentArrayList = new ArrayList<>();
+    private ArrayList<Lesson> lessonArrayList = new ArrayList<>();
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -49,16 +55,20 @@ public class StudentListController implements Initializable{
         try {
             headerHBox.setVisible(true);
             studentArrayList = StudentService.getAllStudents();
-
-            for (Student student : studentArrayList) {
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/fis2021/studentListItem.fxml"));
-                HBox hBox = loader.load();
-                hBoxEventHandler(hBox, student);
-                StudentListItemController studentListItemController = loader.getController();
-                studentListItemController.setInfo(student);
-                vBox.getChildren().add(hBox);
+            lessonArrayList = LessonService.getAllLessons();
+            TutorHolder tutorHolder = TutorHolder.getInstance();
+            Tutor tutor = tutorHolder.getTutor();
+            for (Lesson lesson : lessonArrayList) {
+                if (lesson.getTutorName().equals(tutor.getNume()) && lesson.getStatus().equals("accepted")) {
+                    FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/fis2021/studentListItem.fxml"));
+                    HBox hBox = loader.load();
+                    hBoxEventHandler(hBox, StudentService.getStudent(lesson.getStudentName()));
+                    StudentListItemController studentListItemController = loader.getController();
+                    studentListItemController.setInfo(StudentService.getStudent(lesson.getStudentName()));
+                    vBox.getChildren().add(hBox);
+                }
             }
-        } catch (IOException e) {
+        } catch (IOException | UserNotFoundException e) {
             e.printStackTrace();
         }
     }
@@ -141,5 +151,21 @@ public class StudentListController implements Initializable{
 
     void hBoxEventHandler(HBox hBox, Student student){
         hBox.setOnMouseClicked(mouseEvent -> loadStudentInfoItem(student));
+    }
+
+    @FXML
+    void switchToRequests() throws IOException{
+        Stage stage = (Stage) vBox.getScene().getWindow();
+        Scene scene = new Scene(loadFXML("requestTutor"), 1280, 720);
+        stage.setTitle("Tutor Searching App - Requests Tutor");
+        stage.setScene(scene);
+    }
+
+    @FXML
+    void switchToAccount() throws IOException{
+        Stage stage = (Stage) vBox.getScene().getWindow();
+        Scene scene = new Scene(loadFXML("accountTutor"), 1280, 720);
+        stage.setTitle("Tutor Searching App - Account");
+        stage.setScene(scene);
     }
 }

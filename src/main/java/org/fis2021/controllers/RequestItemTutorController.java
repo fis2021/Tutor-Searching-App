@@ -117,6 +117,7 @@ public class RequestItemTutorController {
     void acceptButtonClicked() {
         this.lesson.setStatus("accepted");
         DatabaseService.getDatabase().getRepository(Lesson.class).update(lesson);
+        declineAnchorPane.setVisible(false);
     }
 
     @FXML
