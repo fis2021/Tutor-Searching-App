@@ -30,16 +30,16 @@ public class CalendarController implements Initializable {
     @FXML
     private CalendarView calendarView;
 
-    private Calendar calendar;
+    private static Calendar calendar;
     private ArrayList<Lesson> lessons;
 
-    public LocalDate stringToDate(String date) {
+    public static LocalDate stringToDate(String date) {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("d MM yyyy");
         LocalDate localDate = LocalDate.parse(date, formatter);
         return localDate;
     }
 
-    public LocalTime stringToTime(String time) {
+    public static LocalTime stringToTime(String time) {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm");
         LocalTime localTime = LocalTime.parse(time, formatter);
         return localTime;
@@ -99,6 +99,10 @@ public class CalendarController implements Initializable {
         }
     }
 
+    static Calendar getCalendar() {
+        return calendar;
+    }
+
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -107,6 +111,9 @@ public class CalendarController implements Initializable {
         calendar.setStyle(Calendar.Style.STYLE2);
 
         calendar.setReadOnly(true);
+        calendarView.setShowAddCalendarButton(false);
+        calendarView.setShowPrintButton(false);
+        calendarView.setShowSourceTrayButton(false);
 
         StudentHolder studentHolder = StudentHolder.getInstance();
         Student student = studentHolder.getStudent();

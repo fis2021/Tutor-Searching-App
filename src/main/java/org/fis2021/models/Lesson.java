@@ -10,7 +10,7 @@ public class Lesson {
     String id;
 
     private String lessonName, date, startTime, endTime, tutorName, studentName, status, declinedMessage;
-    //status: pending, accepted, declined
+    //status: pending, accepted, declined, removed
     boolean weeklyRec;
 
     Lesson(){
