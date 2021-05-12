@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane fx:id="requestAnchorPane" prefHeight="175.0" prefWidth="951.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.fis2021.controllers.RequestItemTutorController">
+   <children>
+      <HBox id="requestItemHBox" alignment="CENTER_RIGHT" layoutX="1.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#showDeclinedMessage" prefHeight="100.0" prefWidth="950.0" styleClass="tutorlistitem" stylesheets="@style/style.css">
+         <children>
+            <Label id="classNameRequest" fx:id="classNameField" alignment="CENTER" prefHeight="18.0" prefWidth="154.0" text="nume curs" />
+            <Label fx:id="dateField" alignment="CENTER" prefHeight="18.0" prefWidth="180.0" text="data" />
+            <Label fx:id="startTimeField" alignment="CENTER" prefHeight="18.0" prefWidth="97.0" text="start" />
+            <Label fx:id="endTimeField" alignment="CENTER" prefHeight="18.0" prefWidth="106.0" text="end" />
+            <Label id="freqLabel" fx:id="freqLabel" alignment="CENTER" prefHeight="27.0" prefWidth="122.0" />
+            <Label id="tutorNameRequest" fx:id="studentNameField" alignment="CENTER" prefHeight="18.0" prefWidth="181.0" text="nume student" />
+            <Label id="statusRequest" fx:id="statusField" alignment="CENTER" prefHeight="124.0" prefWidth="132.0" text="status" />
+         </children>
+      </HBox>
+      <AnchorPane fx:id="declineAnchorPane" layoutX="1.0" layoutY="100.0" prefHeight="100.0" prefWidth="950.0">
+         <children>
+            <Button fx:id="declineButton" layoutX="821.0" layoutY="32.0" mnemonicParsing="false" onAction="#declineButtonClicked" style="-fx-background-radius: 20;" styleClass="buttonmenu" stylesheets="@style/style.css" text="Decline" />
+            <Button fx:id="acceptButton" layoutX="686.0" layoutY="32.0" mnemonicParsing="false" onAction="#acceptButtonClicked" style="-fx-background-radius: 20;" styleClass="buttonmenu" stylesheets="@style/style.css" text="Accept" />
+            <TextField fx:id="declineTextField" layoutX="48.0" layoutY="32.0" prefHeight="40.0" prefWidth="350.0" />
+            <Button fx:id="submitButton" layoutX="434.0" layoutY="32.0" mnemonicParsing="false" onAction="#submitButtonClicked" style="-fx-background-radius: 20;" styleClass="buttonmenu" stylesheets="@style/style.css" text="Submit" />
+            <Label fx:id="declineLabel" layoutX="120.0" layoutY="4.0" text="Please enter your decline reasons" textFill="#22156c">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
