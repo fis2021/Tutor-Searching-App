@@ -45,7 +45,7 @@
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Button layoutX="10.0" layoutY="180.0" mnemonicParsing="false" onAction="#switchToRequest" prefHeight="37.0" prefWidth="150.0" styleClass="buttonmenu" stylesheets="@style/style.css" text="Requests">
+                  <Button layoutX="10.0" layoutY="180.0" mnemonicParsing="false" onAction="#switchToRequest" id="requestsButton" prefHeight="37.0" prefWidth="150.0" styleClass="buttonmenu" stylesheets="@style/style.css" text="Requests">
                      <graphic>
                         <ImageView fitHeight="46.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -54,7 +54,7 @@
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Button layoutX="10.0" layoutY="228.0" mnemonicParsing="false" onAction="#switchToCalendar" prefHeight="37.0" prefWidth="150.0" styleClass="buttonmenu" stylesheets="@style/style.css" text="Calendar">
+                  <Button layoutX="10.0" layoutY="228.0" mnemonicParsing="false" onAction="#switchToCalendar" id="calendarButton" prefHeight="37.0" prefWidth="150.0" styleClass="buttonmenu" stylesheets="@style/style.css" text="Calendar">
                      <graphic>
                         <ImageView fitHeight="46.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -72,7 +72,7 @@
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Button mnemonicParsing="false" onAction="#logoutButtonPressed" prefHeight="37.0" prefWidth="150.0" styleClass="buttonmenu" stylesheets="@style/style.css" text="Logout">
+                  <Button mnemonicParsing="false" onAction="#logoutButtonPressed" id="logoutButton" prefHeight="37.0" prefWidth="150.0" styleClass="buttonmenu" stylesheets="@style/style.css" text="Logout">
                      <graphic>
                         <ImageView fitHeight="46.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -83,7 +83,7 @@
                   </Button>
                </children>
             </VBox>
-            <CalendarView fx:id="calendarView" prefWidth="1130.0" />
+            <CalendarView fx:id="calendarView" id="calendarView" prefWidth="1130.0" />
          </children>
       </HBox>
    </children>
