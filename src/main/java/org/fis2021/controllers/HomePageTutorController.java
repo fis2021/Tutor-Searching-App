@@ -11,8 +11,13 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Region;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import org.fis2021.exceptions.UserNotFoundException;
+import org.fis2021.models.Lesson;
 import org.fis2021.models.Student;
+import org.fis2021.models.Tutor;
+import org.fis2021.services.LessonService;
 import org.fis2021.services.StudentService;
+import org.fis2021.services.TutorHolder;
 
 import java.io.IOException;
 import java.net.URL;
@@ -26,37 +31,41 @@ public class HomePageTutorController implements Initializable {
     private GridPane gridPane;
 
     private ArrayList<Student> studentArrayList = new ArrayList<>();
+    private ArrayList<Lesson> lessonArrayList = new ArrayList<>();
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         try {
             studentArrayList = StudentService.getAllStudents();
-
+            lessonArrayList = LessonService.getAllLessons();
             int column = 0;
             int row = 1;
+            TutorHolder tutorHolder = TutorHolder.getInstance();
+            Tutor tutor = tutorHolder.getTutor();
+            for (Lesson lesson : lessonArrayList) {
+                if (lesson.getTutorName().equals(tutor.getNume()) && lesson.getStatus().equals("accepted")) {
+                    FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/fis2021/itemStudent.fxml"));
+                    VBox vBox = loader.load();
+                    ItemStudentController itemStudentController = loader.getController();
+                    itemStudentController.setInfo(StudentService.getStudent(lesson.getStudentName()));
+                    if (column == 3) {
+                        column = 0;
+                        row++;
+                    }
+                    gridPane.add(vBox, column++, row);
 
-            for (Student student : studentArrayList) {
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/fis2021/itemStudent.fxml"));
-                VBox vBox = loader.load();
-                ItemStudentController itemStudentController = loader.getController();
-                itemStudentController.setInfo(student);
-                if (column == 3){
-                    column = 0;
-                    row++;
+                    gridPane.setMinWidth(Region.USE_COMPUTED_SIZE);
+                    gridPane.setPrefWidth(Region.USE_COMPUTED_SIZE);
+                    gridPane.setMinWidth(Region.USE_PREF_SIZE);
+
+                    gridPane.setMinHeight(Region.USE_COMPUTED_SIZE);
+                    gridPane.setPrefHeight(Region.USE_COMPUTED_SIZE);
+                    gridPane.setMinHeight(Region.USE_PREF_SIZE);
+
+                    GridPane.setMargin(vBox, new Insets(20));
                 }
-                gridPane.add(vBox, column++, row);
-
-                gridPane.setMinWidth(Region.USE_COMPUTED_SIZE);
-                gridPane.setPrefWidth(Region.USE_COMPUTED_SIZE);
-                gridPane.setMinWidth(Region.USE_PREF_SIZE);
-
-                gridPane.setMinHeight(Region.USE_COMPUTED_SIZE);
-                gridPane.setPrefHeight(Region.USE_COMPUTED_SIZE);
-                gridPane.setMinHeight(Region.USE_PREF_SIZE);
-
-                GridPane.setMargin(vBox, new Insets(20));
             }
-        } catch (IOException e) {
+        } catch (IOException | UserNotFoundException e) {
             e.printStackTrace();
         }
     }

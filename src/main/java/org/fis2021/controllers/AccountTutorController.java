@@ -184,4 +184,12 @@ public class AccountTutorController implements Initializable {
         }
     }
 
+    @FXML
+    void switchToRequests() throws IOException{
+        Stage stage = (Stage) passwordField.getScene().getWindow();
+        Scene scene = new Scene(loadFXML("requestTutor"), 1280, 720);
+        stage.setTitle("Tutor Searching App - Requests Tutor");
+        stage.setScene(scene);
+    }
+
 }
