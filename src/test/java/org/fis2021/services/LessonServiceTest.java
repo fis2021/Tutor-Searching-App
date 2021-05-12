@@ -38,7 +38,7 @@ class LessonServiceTest {
     @Test
     @DisplayName("Lesson is added to database")
     void testLessonIsAddedToDatabase() {
-        LessonService.addLesson("ana", "fis", "1", "0", "0", true, "vlad", "accepted");
+        LessonService.addLesson("ana", "fis", "1", "0", "0", true, "vlad", "accepted", "");
         assertThat(LessonService.getAllLessons()).isNotEmpty();
         assertThat(LessonService.getAllLessons().size()).isEqualTo(1);
         Lesson lesson = LessonService.getAllLessons().get(0);

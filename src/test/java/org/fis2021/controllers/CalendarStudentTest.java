@@ -35,9 +35,9 @@ class CalendarStudentTest {
         StudentService.initStudent();
         LessonService.initLesson();
         StudentService.addStudent("Ana", "AC", "CTI", "LM123", "ana.ana", "abcd");
-        LessonService.addLesson("Vlad", "Lab FIS", "12 05 2021", "10:00", "12:00", true, "ana.ana", "accepted");
-        LessonService.addLesson("Alex", "Lab OC", "12 05 2021", "12:00", "14:00", true, "ana.ana", "pending");
-        LessonService.addLesson("Andreea", "Lab BD", "12 05 2021", "14:00", "16:00", true, "ana.ana", "declined");
+        LessonService.addLesson("Vlad", "Lab FIS", "12 05 2021", "10:00", "12:00", true, "ana.ana", "accepted", "");
+        LessonService.addLesson("Alex", "Lab OC", "12 05 2021", "12:00", "14:00", true, "ana.ana", "pending", "");
+        LessonService.addLesson("Andreea", "Lab BD", "12 05 2021", "14:00", "16:00", true, "ana.ana", "declined", "too many students in class");
     }
 
     @Start

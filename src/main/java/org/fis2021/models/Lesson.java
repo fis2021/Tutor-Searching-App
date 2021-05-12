@@ -16,7 +16,7 @@ public class Lesson {
     Lesson(){
     }
 
-    public Lesson(String tutorName, String lessonName, String date, String startTime, String endTime, boolean weeklyRec, String studentName, String status) {
+    public Lesson(String tutorName, String lessonName, String date, String startTime, String endTime, boolean weeklyRec, String studentName, String status, String declinedMessage) {
         this.tutorName = tutorName;
         this.lessonName = lessonName;
         this.date = date;
@@ -26,6 +26,7 @@ public class Lesson {
         this.weeklyRec = weeklyRec;
         this.studentName = studentName;
         this.status = status;
+        this.declinedMessage = declinedMessage;
     }
 
     public String getDeclinedMessage() {

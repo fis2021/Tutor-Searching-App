@@ -80,7 +80,7 @@ public class TutorRegisterController {
             }
             String date = datePicker.getValue().format(DateTimeFormatter.ofPattern("dd MM yyyy"));
             TutorService.addTutor(numeField.getText(), usernameField.getText(), passwordField.getText(), materieField.getText(), specializareField.getText());
-            LessonService.addLesson(numeField.getText(), classNameField.getText(), date, startTime.getValue().toString(), endTime.getValue().toString(), recurrenceCheckBox.isSelected(), "", "");
+            LessonService.addLesson(numeField.getText(), classNameField.getText(), date, startTime.getValue().toString(), endTime.getValue().toString(), recurrenceCheckBox.isSelected(), "", "", "");
             invalidCredentialsLabel.setText("Account created successfully!");
         } catch (UsernameAlreadyExistsException e) {
             invalidCredentialsLabel.setText(e.getMessage());

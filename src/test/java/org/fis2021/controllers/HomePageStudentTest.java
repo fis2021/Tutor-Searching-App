@@ -32,7 +32,7 @@ class HomePageStudentTest {
         TutorService.addTutor("Vlad", "vlad.vlad", "abcd", "FIS", "CTI");
         TutorService.addTutor("Alexandra", "alexandra.alexandra", "abcd", "MAC", "CTI");
         StudentService.addStudent("Ana", "AC", "CTI", "LM123", "ana.ana", "abcd");
-        LessonService.addLesson("vlad.vlad", "FIs", "11 05 2021", "12:00", "14:00", true, "ana.ana", "accepted");
+        LessonService.addLesson("vlad.vlad", "FIs", "11 05 2021", "12:00", "14:00", true, "ana.ana", "accepted", "");
     }
 
     @Start

@@ -14,8 +14,8 @@ public class LessonService {
         lessonRepository = DatabaseService.getDatabase().getRepository(Lesson.class);
     }
 
-    public static void addLesson(String tutorName, String lessonName,String date, String startTime, String endTime, boolean weeklyRec, String studentName, String status){
-        lessonRepository.insert(new Lesson(tutorName, lessonName, date, startTime, endTime, weeklyRec, studentName, status));
+    public static void addLesson(String tutorName, String lessonName,String date, String startTime, String endTime, boolean weeklyRec, String studentName, String status, String declineMessage){
+        lessonRepository.insert(new Lesson(tutorName, lessonName, date, startTime, endTime, weeklyRec, studentName, status, declineMessage));
     }
 
     public static ArrayList<Lesson> getAllLessons(){
