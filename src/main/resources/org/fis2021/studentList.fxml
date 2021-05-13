@@ -59,7 +59,7 @@
                                 </ImageView>
                             </graphic>
                         </Button>
-                        <Button layoutX="10.0" layoutY="228.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="150.0" styleClass="buttonmenu" stylesheets="@style/style.css" text="Calendar">
+                        <Button layoutX="10.0" layoutY="228.0" mnemonicParsing="false" onAction="#switchToCalendar" prefHeight="37.0" prefWidth="150.0" styleClass="buttonmenu" stylesheets="@style/style.css" text="Calendar">
                             <graphic>
                                 <ImageView fitHeight="46.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
                                     <image>
