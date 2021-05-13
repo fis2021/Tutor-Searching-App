@@ -70,7 +70,7 @@ public class RequestTutorController implements Initializable {
                 return;
             }
             for (Lesson lesson : lessons) {
-                if (lesson.getTutorName().equals(tutor.getNume()) && lesson.getStatus().equals(status)) {
+                if (lesson.getTutorName().equals(tutor.getNume()) &&  (lesson.getStatus().equals("pending") || lesson.getStatus().equals("declined") || lesson.getStatus().equals("removed"))) {
                     addAnchorPane(lesson);
                 }
             }
