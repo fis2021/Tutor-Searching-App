@@ -192,4 +192,12 @@ public class AccountTutorController implements Initializable {
         stage.setScene(scene);
     }
 
+    @FXML
+    void switchToCalendar() throws IOException {
+        Stage stage = (Stage) passwordField.getScene().getWindow();
+        Scene scene = new Scene(loadFXML("calendarTutor"), 1280, 720);
+        stage.setTitle("Tutor Searching App - Calendar");
+        stage.setScene(scene);
+    }
+
 }

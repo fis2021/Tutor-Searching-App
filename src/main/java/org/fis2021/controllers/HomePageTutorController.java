@@ -107,4 +107,12 @@ public class HomePageTutorController implements Initializable {
         stage.setTitle("Tutor Searching App - Requests Tutor");
         stage.setScene(scene);
     }
+
+    @FXML
+    void switchToCalendar() throws IOException {
+        Stage stage = (Stage) gridPane.getScene().getWindow();
+        Scene scene = new Scene(loadFXML("calendarTutor"), 1280, 720);
+        stage.setTitle("Tutor Searching App - Calendar");
+        stage.setScene(scene);
+    }
 }
