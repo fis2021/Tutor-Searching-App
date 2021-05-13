@@ -132,4 +132,12 @@ public class CalendarTutorController implements Initializable {
         }
     }
 
+    @FXML
+    void switchToCourses() throws IOException {
+        Stage stage = (Stage) calendarView.getScene().getWindow();
+        Scene scene = new Scene(loadFXML("addCourses"), 1280, 720);
+        stage.setTitle("Tutor Searching App - Add Courses");
+        stage.setScene(scene);
+    }
+
 }
