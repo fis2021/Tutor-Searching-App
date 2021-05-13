@@ -12,14 +12,14 @@
     <children>
         <HBox alignment="CENTER" prefHeight="58.0" prefWidth="98.0">
             <children>
-                <ImageView fitHeight="70.0" fitWidth="52.0" pickOnBounds="true" preserveRatio="true">
+                <ImageView fx:id="infoImageView" fitHeight="70.0" fitWidth="52.0" pickOnBounds="true" preserveRatio="true">
                     <image>
                         <Image url="@../../pictures/194931.png" />
                     </image>
                 </ImageView>
             </children>
         </HBox>
-        <Label fx:id="numeLabel" prefHeight="58.0" prefWidth="226.0" text="Name" textFill="#22156c">
+        <Label fx:id="numeLabel" prefHeight="100.0" prefWidth="200.0" text="Name" textFill="#22156c">
             <font>
                 <Font name="System Bold" size="14.0" />
             </font>
