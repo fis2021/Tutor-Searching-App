@@ -22,27 +22,27 @@
                   <Image url="@../../pictures/Title.png" />
                </image>
             </ImageView>
-            <Button fx:id="registerButton" layoutX="744.0" layoutY="490.0" mnemonicParsing="false" onAction="#registerTutor" prefHeight="40.0" prefWidth="120.0" text="Register" textFill="#22156c">
+            <Button fx:id="registerButton" id="registerTutor" layoutX="744.0" layoutY="490.0" mnemonicParsing="false" onAction="#registerTutor" prefHeight="40.0" prefWidth="120.0" text="Register" textFill="#22156c">
                <font>
                   <Font size="18.0" />
                </font>
             </Button>
-            <TextField fx:id="numeField" layoutX="322.0" layoutY="184.0">
+            <TextField fx:id="numeField" id="nameTutor" layoutX="322.0" layoutY="184.0">
                <font>
                   <Font size="18.0" />
                </font>
             </TextField>
-            <TextField fx:id="materieField" layoutX="322.0" layoutY="229.0">
+            <TextField fx:id="materieField" id="classTutor" layoutX="322.0" layoutY="229.0">
                <font>
                   <Font size="18.0" />
                </font>
             </TextField>
-            <TextField fx:id="specializareField" layoutX="322.0" layoutY="274.0">
+            <TextField fx:id="specializareField" id="specTutor" layoutX="322.0" layoutY="274.0">
                <font>
                   <Font size="18.0" />
                </font>
             </TextField>
-            <TextField fx:id="usernameField" layoutX="322.0" layoutY="321.0">
+            <TextField fx:id="usernameField" id="usernameTutor" layoutX="322.0" layoutY="321.0">
                <font>
                   <Font size="18.0" />
                </font>
@@ -52,7 +52,7 @@
                   <Font size="18.0" />
                </font>
             </Label>
-            <PasswordField fx:id="passwordField" layoutX="322.0" layoutY="366.0">
+            <PasswordField fx:id="passwordField" id="passwordTutor" layoutX="322.0" layoutY="366.0">
                <font>
                   <Font size="18.0" />
                </font>
@@ -77,19 +77,19 @@
                   <Font size="18.0" />
                </font>
             </Label>
-            <Label fx:id="invalidCredentialsLabel" alignment="BASELINE_CENTER" contentDisplay="CENTER" layoutX="180.0" layoutY="575.0" prefHeight="60.0" prefWidth="920.0" textAlignment="CENTER">
+            <Label fx:id="invalidCredentialsLabel" id="warningLabel" alignment="BASELINE_CENTER" contentDisplay="CENTER" layoutX="180.0" layoutY="575.0" prefHeight="60.0" prefWidth="920.0" textAlignment="CENTER">
                <font>
                   <Font size="18.0" />
                </font>
             </Label>
-            <Button fx:id="loginButton" layoutX="469.0" layoutY="490.0" mnemonicParsing="false" onAction="#backToLogin" prefHeight="40.0" prefWidth="120.0" text="Login" textFill="#22156c">
+            <Button fx:id="loginButton" id="switchToLogin" layoutX="469.0" layoutY="490.0" mnemonicParsing="false" onAction="#backToLogin" prefHeight="40.0" prefWidth="120.0" text="Login" textFill="#22156c">
                <font>
                   <Font size="18.0" />
                </font>
             </Button>
-            <DatePicker fx:id="datePicker" layoutX="963.0" layoutY="229.0" prefHeight="40.0" prefWidth="223.0" />
-            <TimeField fx:id="startTime" layoutX="963.0" layoutY="281.0" prefHeight="26.0" prefWidth="78.0" />
-            <TimeField fx:id="endTime" layoutX="963.0" layoutY="328.0" />
+            <DatePicker fx:id="datePicker" id="datePicker" layoutX="963.0" layoutY="229.0" prefHeight="40.0" prefWidth="223.0" />
+            <TimeField fx:id="startTime" id="startTime" layoutX="963.0" layoutY="281.0" prefHeight="26.0" prefWidth="78.0" />
+            <TimeField fx:id="endTime" id="endTime" layoutX="963.0" layoutY="328.0" />
             <Label layoutX="852.0" layoutY="236.0" text="Date" textFill="#22156c">
                <font>
                   <Font size="18.0" />
@@ -105,7 +105,7 @@
                   <Font size="18.0" />
                </font>
             </Label>
-            <TextField fx:id="classNameField" layoutX="963.0" layoutY="184.0" prefHeight="40.0" prefWidth="223.0">
+            <TextField fx:id="classNameField" id="classNameTutor" layoutX="963.0" layoutY="184.0" prefHeight="40.0" prefWidth="223.0">
                <font>
                   <Font size="18.0" />
                </font>
@@ -115,7 +115,7 @@
                   <Font size="18.0" />
                </font>
             </Label>
-            <CheckBox fx:id="recurrenceCheckBox" layoutX="963.0" layoutY="372.0" mnemonicParsing="false" text="Repeat weekly" textFill="#22156c">
+            <CheckBox fx:id="recurrenceCheckBox" id="reccBox" layoutX="963.0" layoutY="372.0" mnemonicParsing="false" text="Repeat weekly" textFill="#22156c">
                <font>
                   <Font size="18.0" />
                </font>
