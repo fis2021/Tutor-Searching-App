@@ -74,8 +74,9 @@ public class TutorRegisterController {
         initTutor();
         initLesson();
         try {
-            if (numeField.getText().isEmpty() || usernameField.getText().isEmpty() || passwordField.getText().isEmpty() || materieField.getText().isEmpty() || specializareField.getText().isEmpty() || classNameField.getText().isEmpty() || datePicker.getValue() == null){
-                invalidCredentialsLabel.setText("Please fill in the required fields!");
+            if (numeField == null || usernameField == null || passwordField == null || materieField == null || specializareField == null || classNameField == null || startTime.getValue() == null || endTime.getValue() == null ||
+                    numeField.getText().isEmpty() || usernameField.getText().isEmpty() || passwordField.getText().isEmpty() || materieField.getText().isEmpty() || specializareField.getText().isEmpty() || classNameField.getText().isEmpty() || datePicker.getValue() == null){
+                invalidCredentialsLabel.setText("Please fill in the empty fields!");
                 return;
             }
             String date = datePicker.getValue().format(DateTimeFormatter.ofPattern("dd MM yyyy"));

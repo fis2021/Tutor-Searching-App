@@ -60,8 +60,9 @@ public class StudentRegisterController {
     void registerStudent() {
         initStudent();
         try {
-            if (numeField.getText().isEmpty() || facultateField.getText().isEmpty() || specializareField.getText().isEmpty() || nr_matricolField.getText().isEmpty() || usernameField.getText().isEmpty() || passwordField.getText().isEmpty()){
-                invalidCredentialsLabel.setText("Please fill in the required fields!");
+            if (numeField.getText() == null || facultateField.getText() == null || specializareField.getText() == null || nr_matricolField.getText() == null || usernameField.getText() == null || passwordField.getText() == null
+                    ||numeField.getText().isEmpty() || facultateField.getText().isEmpty() || specializareField.getText().isEmpty() || nr_matricolField.getText().isEmpty() || usernameField.getText().isEmpty() || passwordField.getText().isEmpty()){
+                invalidCredentialsLabel.setText("Please fill in the empty fields!");
                 return;
             }
             StudentService.addStudent(numeField.getText(), facultateField.getText(), specializareField.getText(), nr_matricolField.getText(), usernameField.getText(), passwordField.getText());

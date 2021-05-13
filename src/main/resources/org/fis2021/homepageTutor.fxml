@@ -86,7 +86,7 @@
                 </VBox>
                 <VBox prefHeight="200.0" prefWidth="1130.0">
                     <children>
-                        <Label prefHeight="100.0" prefWidth="1130.0" text="            My Students" textFill="#22156c">
+                        <Label prefHeight="100.0" prefWidth="1130.0" id="tutorHomePage" text="            My Students" textFill="#22156c">
                             <font>
                                 <Font name="System Bold" size="24.0" />
                             </font>
