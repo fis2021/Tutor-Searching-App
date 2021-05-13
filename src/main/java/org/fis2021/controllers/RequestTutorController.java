@@ -148,4 +148,12 @@ public class RequestTutorController implements Initializable {
         stage.setScene(scene);
     }
 
+    @FXML
+    void switchToCourses() throws IOException {
+        Stage stage = (Stage) scrollPanel.getScene().getWindow();
+        Scene scene = new Scene(loadFXML("addCourses"), 1280, 720);
+        stage.setTitle("Tutor Searching App - Add Courses");
+        stage.setScene(scene);
+    }
+
 }
