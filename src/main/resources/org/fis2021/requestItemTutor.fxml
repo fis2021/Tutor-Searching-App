@@ -16,16 +16,16 @@
             <Label fx:id="startTimeField" alignment="CENTER" prefHeight="18.0" prefWidth="97.0" text="start" />
             <Label fx:id="endTimeField" alignment="CENTER" prefHeight="18.0" prefWidth="106.0" text="end" />
             <Label id="freqLabel" fx:id="freqLabel" alignment="CENTER" prefHeight="27.0" prefWidth="122.0" />
-            <Label id="tutorNameRequest" fx:id="studentNameField" alignment="CENTER" prefHeight="18.0" prefWidth="181.0" text="nume student" />
+            <Label id="studentNameRequest" fx:id="studentNameField" alignment="CENTER" prefHeight="18.0" prefWidth="181.0" text="nume student" />
             <Label id="statusRequest" fx:id="statusField" alignment="CENTER" prefHeight="124.0" prefWidth="132.0" text="status" />
          </children>
       </HBox>
       <AnchorPane fx:id="declineAnchorPane" layoutX="1.0" layoutY="100.0" prefHeight="100.0" prefWidth="950.0">
          <children>
-            <Button fx:id="declineButton" layoutX="821.0" layoutY="32.0" mnemonicParsing="false" onAction="#declineButtonClicked" style="-fx-background-radius: 20;" styleClass="buttonmenu" stylesheets="@style/style.css" text="Decline" />
-            <Button fx:id="acceptButton" layoutX="686.0" layoutY="32.0" mnemonicParsing="false" onAction="#acceptButtonClicked" style="-fx-background-radius: 20;" styleClass="buttonmenu" stylesheets="@style/style.css" text="Accept" />
-            <TextField fx:id="declineTextField" layoutX="48.0" layoutY="32.0" prefHeight="40.0" prefWidth="350.0" />
-            <Button fx:id="submitButton" layoutX="434.0" layoutY="32.0" mnemonicParsing="false" onAction="#submitButtonClicked" style="-fx-background-radius: 20;" styleClass="buttonmenu" stylesheets="@style/style.css" text="Submit" />
+            <Button fx:id="declineButton" id="declineButton" layoutX="821.0" layoutY="32.0" mnemonicParsing="false" onAction="#declineButtonClicked" style="-fx-background-radius: 20;" styleClass="buttonmenu" stylesheets="@style/style.css" text="Decline" />
+            <Button fx:id="acceptButton" id="acceptButton" layoutX="686.0" layoutY="32.0" mnemonicParsing="false" onAction="#acceptButtonClicked" style="-fx-background-radius: 20;" styleClass="buttonmenu" stylesheets="@style/style.css" text="Accept" />
+            <TextField fx:id="declineTextField" id="declineText" layoutX="48.0" layoutY="32.0" prefHeight="40.0" prefWidth="350.0" />
+            <Button fx:id="submitButton" id="submitButton" layoutX="434.0" layoutY="32.0" mnemonicParsing="false" onAction="#submitButtonClicked" style="-fx-background-radius: 20;" styleClass="buttonmenu" stylesheets="@style/style.css" text="Submit" />
             <Label fx:id="declineLabel" layoutX="120.0" layoutY="4.0" text="Please state your decline reasons" textFill="#22156c">
                <font>
                   <Font size="14.0" />

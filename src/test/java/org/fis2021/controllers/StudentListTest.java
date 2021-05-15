@@ -9,9 +9,11 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.testfx.api.FxAssert;
 import org.testfx.api.FxRobot;
 import org.testfx.framework.junit5.ApplicationExtension;
 import org.testfx.framework.junit5.Start;
+import org.testfx.matcher.base.NodeMatchers;
 
 import java.io.IOException;
 
@@ -139,6 +141,25 @@ class StudentListTest {
         robot.clickOn("#studentSearchButton");
 
         assertThat(robot.lookup("#studentNotFound").queryLabeled().getText()).isEqualTo("Student not found");
+    }
+
+    @Test
+    void testRemoveStudent(FxRobot robot) {
+        robot.clickOn("#username");
+        robot.write("vlad.vlad");
+        robot.clickOn("#password");
+        robot.write("vlad");
+        robot.clickOn("#role");
+        robot.clickOn("Tutor");
+        robot.clickOn("#loginButton");
+        robot.clickOn("#studentListButton");
+
+        robot.clickOn("#studentListHBox");
+        robot.clickOn("#enableRemove");
+        robot.clickOn("#removeText");
+        robot.write("Grades under 5.");
+        robot.clickOn("#submitButton");
+        FxAssert.verifyThat("#successLabel", NodeMatchers.isVisible());
     }
 
 }

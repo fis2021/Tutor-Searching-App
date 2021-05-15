@@ -14,19 +14,19 @@
     <children>
       <AnchorPane prefHeight="150.0" prefWidth="200.0">
          <children>
-            <Button fx:id="submitButton" layoutX="400.0" layoutY="56.0" mnemonicParsing="false" onAction="#removeStudent" style="-fx-background-radius: 20;" styleClass="buttonmenu" stylesheets="@style/style.css" text="Submit" />
-            <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="694.0" layoutY="45.0" onMouseClicked="#enableRemoveStudent" pickOnBounds="true" preserveRatio="true">
+            <Button fx:id="submitButton" id="submitButton" layoutX="400.0" layoutY="56.0" mnemonicParsing="false" onAction="#removeStudent" style="-fx-background-radius: 20;" styleClass="buttonmenu" stylesheets="@style/style.css" text="Submit" />
+            <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="694.0" layoutY="45.0" onMouseClicked="#enableRemoveStudent" id="enableRemove" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../pictures/delete.png" />
                </image>
             </ImageView>
-            <Label fx:id="stateLabel" layoutX="79.0" layoutY="25.0" text="Please state your removing reason:" textFill="#22156c">
+            <Label fx:id="stateLabel" id="stateLabel" layoutX="79.0" layoutY="25.0" text="Please state your removing reason:" textFill="#22156c">
                <font>
                   <Font size="14.0" />
                </font>
             </Label>
-            <TextField fx:id="removeTextField" layoutX="12.0" layoutY="56.0" prefHeight="40.0" prefWidth="350.0" />
-            <Label fx:id="succesLabel" layoutX="94.0" layoutY="116.0" text="Student successfully removed!" textFill="#22156c">
+            <TextField fx:id="removeTextField" id="removeText" layoutX="12.0" layoutY="56.0" prefHeight="40.0" prefWidth="350.0" />
+            <Label fx:id="succesLabel" id="successLabel" layoutX="94.0" layoutY="116.0" text="Student successfully removed!" textFill="#22156c">
                <font>
                   <Font size="14.0" />
                </font>
