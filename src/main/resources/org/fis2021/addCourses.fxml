@@ -31,7 +31,7 @@
                <children>
                   <AnchorPane prefHeight="169.0" prefWidth="200.0">
                      <children>
-                        <Button layoutX="-1.0" layoutY="63.0" mnemonicParsing="false" onAction="#switchToHomeTutor" prefHeight="48.0" prefWidth="172.0" styleClass="buttonmenu" stylesheets="@style/style.css" text="Home" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="63.0">
+                        <Button layoutX="-1.0" layoutY="63.0" mnemonicParsing="false" onAction="#switchToHomeTutor" id="homeButton" prefHeight="48.0" prefWidth="172.0" styleClass="buttonmenu" stylesheets="@style/style.css" text="Home" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="63.0">
                            <graphic>
                               <ImageView fitHeight="46.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -42,7 +42,7 @@
                         </Button>
                      </children>
                   </AnchorPane>
-                  <Button mnemonicParsing="false" onAction="#switchToStudents" prefHeight="37.0" prefWidth="150.0" styleClass="buttonmenu" stylesheets="@style/style.css" text="Students">
+                  <Button mnemonicParsing="false" onAction="#switchToStudents" id="studentListButton" prefHeight="37.0" prefWidth="150.0" styleClass="buttonmenu" stylesheets="@style/style.css" text="Students">
                      <graphic>
                         <ImageView fitHeight="46.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -51,7 +51,7 @@
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Button layoutX="10.0" layoutY="180.0" mnemonicParsing="false" onAction="#switchToRequests" prefHeight="37.0" prefWidth="150.0" styleClass="buttonmenu" stylesheets="@style/style.css" text="Requests">
+                  <Button layoutX="10.0" layoutY="180.0" mnemonicParsing="false" onAction="#switchToRequests" id="requestsButton" prefHeight="37.0" prefWidth="150.0" styleClass="buttonmenu" stylesheets="@style/style.css" text="Requests">
                      <graphic>
                         <ImageView fitHeight="46.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -60,7 +60,7 @@
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Button layoutX="10.0" layoutY="228.0" mnemonicParsing="false" onAction="#switchToCalendar" prefHeight="37.0" prefWidth="150.0" styleClass="buttonmenu" stylesheets="@style/style.css" text="Calendar">
+                  <Button layoutX="10.0" layoutY="228.0" mnemonicParsing="false" onAction="#switchToCalendar" id="calendarButton" prefHeight="37.0" prefWidth="150.0" styleClass="buttonmenu" stylesheets="@style/style.css" text="Calendar">
                      <graphic>
                         <ImageView fitHeight="46.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -69,7 +69,7 @@
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Button layoutX="10.0" layoutY="276.0" mnemonicParsing="false" onAction="#switchToAccount" prefHeight="37.0" prefWidth="150.0" styleClass="buttonmenu" stylesheets="@style/style.css" text="Account">
+                  <Button layoutX="10.0" layoutY="276.0" mnemonicParsing="false" onAction="#switchToAccount" id="accountButton" prefHeight="37.0" prefWidth="150.0" styleClass="buttonmenu" stylesheets="@style/style.css" text="Account">
                      <graphic>
                         <ImageView fitHeight="46.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -78,7 +78,7 @@
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Button mnemonicParsing="false" onAction="#switchToCourses" prefHeight="26.0" prefWidth="192.0" styleClass="buttonmenu" stylesheets="@style/style.css" text="Courses">
+                  <Button mnemonicParsing="false" onAction="#switchToCourses" id="coursesButton" prefHeight="26.0" prefWidth="192.0" styleClass="buttonmenu" stylesheets="@style/style.css" text="Courses">
                      <graphic>
                         <ImageView fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -87,7 +87,7 @@
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Button mnemonicParsing="false" onAction="#logoutButtonPressed" prefHeight="37.0" prefWidth="192.0" styleClass="buttonmenu" stylesheets="@style/style.css" text="Logout">
+                  <Button mnemonicParsing="false" onAction="#logoutButtonPressed" id="logoutButton" prefHeight="37.0" prefWidth="192.0" styleClass="buttonmenu" stylesheets="@style/style.css" text="Logout">
                      <graphic>
                         <ImageView fitHeight="46.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -139,22 +139,22 @@
                               </VBox>
                               <VBox alignment="CENTER" spacing="10.0">
                                  <children>
-                                    <TextField fx:id="courseNameField" prefWidth="174.0" />
-                                    <DatePicker fx:id="courseDateField" />
-                                    <TimeField fx:id="courseStartTime" />
-                                    <TimeField fx:id="courseEndTime" />
+                                    <TextField fx:id="courseNameField" id="courseName" prefWidth="174.0" />
+                                    <DatePicker fx:id="courseDateField" id="courseDate" />
+                                    <TimeField fx:id="courseStartTime" id="courseStart" />
+                                    <TimeField fx:id="courseEndTime" id="courseEnd" />
                                  </children>
                               </VBox>
                            </children>
                         </HBox>
-                        <CheckBox fx:id="courseWeekly" layoutX="595.0" layoutY="267.0" mnemonicParsing="false" text="Weekly" textFill="#22156c">
+                        <CheckBox fx:id="courseWeekly" id="weekly" layoutX="595.0" layoutY="267.0" mnemonicParsing="false" text="Weekly" textFill="#22156c">
                            <font>
                               <Font size="18.0" />
                            </font>
                         </CheckBox>
-                        <Button fx:id="courseAddButton" layoutX="536.0" layoutY="331.0" mnemonicParsing="false" onAction="#addCourse" style="-fx-background-radius: 20;" styleClass="buttonmenu" stylesheets="@style/style.css" text="Add" />
+                        <Button fx:id="courseAddButton" id="courseAdd" layoutX="536.0" layoutY="331.0" mnemonicParsing="false" onAction="#addCourse" style="-fx-background-radius: 20;" styleClass="buttonmenu" stylesheets="@style/style.css" text="Add" />
                         <Separator layoutX="465.0" layoutY="-1.0" prefHeight="0.0" prefWidth="1130.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="-1.0" />
-                        <Label fx:id="courseAddedLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="549.0" layoutY="411.0" textAlignment="CENTER" textFill="#22156c">
+                        <Label fx:id="courseAddedLabel" id="courseAdded" alignment="CENTER" contentDisplay="CENTER" layoutX="549.0" layoutY="411.0" textAlignment="CENTER" textFill="#22156c">
                            <font>
                               <Font size="14.0" />
                            </font>
