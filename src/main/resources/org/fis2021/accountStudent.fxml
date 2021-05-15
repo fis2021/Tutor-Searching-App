@@ -148,7 +148,7 @@
                                           <Font size="14.0" />
                                        </font>
                                     </Label>
-                                    <TextField fx:id="nameTextfield" id="name" prefHeight="26.0" prefWidth="223.0" />
+                                    <TextField fx:id="nameTextField" id="name" prefHeight="26.0" prefWidth="223.0" />
                                  </children>
                               </HBox>
                               <HBox alignment="CENTER" layoutX="10.0" layoutY="179.0" prefHeight="32.0" prefWidth="503.0">
@@ -175,7 +175,7 @@
                                           <Font size="14.0" />
                                        </font>
                                     </Label>
-                                    <TextField fx:id="universityTextfield" id="university" prefHeight="26.0" prefWidth="223.0" />
+                                    <TextField fx:id="universityTextField" id="university" prefHeight="26.0" prefWidth="223.0" />
                                  </children>
                               </HBox>
                               <HBox alignment="CENTER" layoutX="10.0" layoutY="348.0" prefHeight="32.0" prefWidth="503.0">
@@ -206,7 +206,7 @@
                                           <Font size="14.0" />
                                        </font>
                                     </Label>
-                                    <TextField fx:id="departmentTextield" id="department" prefHeight="26.0" prefWidth="223.0" />
+                                    <TextField fx:id="departmentTextField" id="department" prefHeight="26.0" prefWidth="223.0" />
                                  </children>
                               </HBox>
                               <HBox alignment="CENTER" layoutX="10.0" layoutY="179.0" prefHeight="32.0" prefWidth="503.0">
@@ -233,7 +233,7 @@
                                           <Font size="14.0" />
                                        </font>
                                     </Label>
-                                    <TextField fx:id="registrationTextfield" id="registrationNumber" prefHeight="26.0" prefWidth="223.0" />
+                                    <TextField fx:id="registrationTextField" id="registrationNumber" prefHeight="26.0" prefWidth="223.0" />
                                  </children>
                               </HBox>
                               <HBox alignment="CENTER" layoutX="10.0" layoutY="348.0" prefHeight="32.0" prefWidth="503.0">

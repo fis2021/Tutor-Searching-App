@@ -27,16 +27,16 @@ public class AccountStudentController implements Initializable {
     private Label passwordWarningLabel;
 
     @FXML
-    private TextField nameTextfield;
+    private TextField nameTextField;
 
     @FXML
-    private TextField universityTextfield;
+    private TextField universityTextField;
 
     @FXML
-    private TextField departmentTextield;
+    private TextField departmentTextField;
 
     @FXML
-    private TextField registrationTextfield;
+    private TextField registrationTextField;
 
     @FXML
     private Label nameWarningLabel;
@@ -54,11 +54,11 @@ public class AccountStudentController implements Initializable {
 
     @FXML
     void changeDepartment() {
-        if (departmentTextield == null || departmentTextield.getText().isEmpty()) {
+        if (departmentTextField == null || departmentTextField.getText().isEmpty()) {
             departmentWarningLabel.setText("Please enter your new department.");
             return;
         }
-        student.setSpecializare(departmentTextield.getText());
+        student.setSpecializare(departmentTextField.getText());
         DatabaseService.getDatabase().getRepository(Student.class).update(student);
         departmentWarningLabel.setText("Department changed successfully.");
         return;
@@ -66,11 +66,11 @@ public class AccountStudentController implements Initializable {
 
     @FXML
     void changeName() {
-        if (nameTextfield == null || nameTextfield.getText().isEmpty()){
+        if (nameTextField == null || nameTextField.getText().isEmpty()){
             nameWarningLabel.setText("Please enter your new name.");
             return;
         }
-        student.setNume(nameTextfield.getText());
+        student.setNume(nameTextField.getText());
         DatabaseService.getDatabase().getRepository(Student.class).update(student);
         nameWarningLabel.setText("Name changed successfully.");
         return;
@@ -99,11 +99,11 @@ public class AccountStudentController implements Initializable {
 
     @FXML
     void changeRegistrationNumber() {
-        if (registrationTextfield == null || registrationTextfield.getText().isEmpty()) {
+        if (registrationTextField == null || registrationTextField.getText().isEmpty()) {
             registrationNrWarningLabel.setText("Please enter your new registration number.");
             return;
         }
-        student.setNrMatricol(registrationTextfield.getText());
+        student.setNrMatricol(registrationTextField.getText());
         DatabaseService.getDatabase().getRepository(Student.class).update(student);
         registrationNrWarningLabel.setText("Registration number changed successfully.");
         return;
@@ -111,11 +111,11 @@ public class AccountStudentController implements Initializable {
 
     @FXML
     void changeUniversity() {
-        if (universityTextfield == null || universityTextfield.getText().isEmpty()) {
+        if (universityTextField == null || universityTextField.getText().isEmpty()) {
             universityWarningLabel.setText("Please enter your new university.");
             return;
         }
-        student.setFacultate(universityTextfield.getText());
+        student.setFacultate(universityTextField.getText());
         DatabaseService.getDatabase().getRepository(Student.class).update(student);
         universityWarningLabel.setText("University changed successfully.");
         return;
@@ -125,10 +125,10 @@ public class AccountStudentController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         StudentHolder studentHolder = StudentHolder.getInstance();
         student = studentHolder.getStudent();
-        nameTextfield.setText(student.getNume());
-        universityTextfield.setText(student.getFacultate());
-        departmentTextield.setText(student.getSpecializare());
-        registrationTextfield.setText(student.getNrMatricol());
+        nameTextField.setText(student.getNume());
+        universityTextField.setText(student.getFacultate());
+        departmentTextField.setText(student.getSpecializare());
+        registrationTextField.setText(student.getNrMatricol());
     }
 
     @FXML

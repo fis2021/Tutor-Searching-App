@@ -66,27 +66,27 @@
                 </VBox>
                 <VBox alignment="CENTER" prefHeight="304.0" prefWidth="334.0" spacing="20.0">
                     <children>
-                        <Label fx:id="nameLabel" textFill="#22156c">
+                        <Label fx:id="nameLabel" id="studentInfoName" textFill="#22156c">
                             <font>
                                 <Font name="System Bold" size="24.0" />
                             </font>
                         </Label>
-                        <Label fx:id="facultyLabel" layoutX="148.0" layoutY="144.0" textFill="#22156c">
+                        <Label fx:id="facultyLabel" id="studentInfoFaculty" layoutX="148.0" layoutY="144.0" textFill="#22156c">
                             <font>
                                 <Font name="System Bold" size="24.0" />
                             </font>
                         </Label>
-                        <Label fx:id="specializationLabel" layoutX="148.0" layoutY="172.0" textFill="#22156c">
+                        <Label fx:id="specializationLabel" id="studentInfoSpecialization" layoutX="148.0" layoutY="172.0" textFill="#22156c">
                             <font>
                                 <Font name="System Bold" size="24.0" />
                             </font>
                         </Label>
-                        <Label fx:id="registrationNumberLabel" layoutX="148.0" layoutY="200.0" textFill="#22156c">
+                        <Label fx:id="registrationNumberLabel" id="studentInfoRegistrationNumber" layoutX="148.0" layoutY="200.0" textFill="#22156c">
                             <font>
                                 <Font name="System Bold" size="24.0" />
                             </font>
                         </Label>
-                        <Label fx:id="usernameLabel" textFill="#22156c">
+                        <Label fx:id="usernameLabel" id="studentInfoUsername" textFill="#22156c">
                             <font>
                                 <Font name="System Bold" size="24.0" />
                             </font>

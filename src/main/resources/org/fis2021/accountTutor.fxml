@@ -29,7 +29,7 @@
                <children>
                   <AnchorPane prefHeight="169.0" prefWidth="150.0">
                      <children>
-                        <Button mnemonicParsing="false" onAction="#switchToHome" prefHeight="37.0" prefWidth="150.0" styleClass="buttonmenu" stylesheets="@style/style.css" text="Home" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="63.0">
+                        <Button id="homeButton" mnemonicParsing="false" onAction="#switchToHome" prefHeight="37.0" prefWidth="150.0" styleClass="buttonmenu" stylesheets="@style/style.css" text="Home" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="63.0">
                            <graphic>
                               <ImageView fitHeight="46.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -40,7 +40,7 @@
                         </Button>
                      </children>
                   </AnchorPane>
-                  <Button mnemonicParsing="false" onAction="#switchToStudentList" prefHeight="26.0" prefWidth="192.0" styleClass="buttonmenu" stylesheets="@style/style.css" text="Students">
+                  <Button id="studentListButton" mnemonicParsing="false" onAction="#switchToStudentList" prefHeight="26.0" prefWidth="192.0" styleClass="buttonmenu" stylesheets="@style/style.css" text="Students">
                      <graphic>
                         <ImageView fitHeight="46.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -49,7 +49,7 @@
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Button layoutX="10.0" layoutY="180.0" mnemonicParsing="false" onAction="#switchToRequests" prefHeight="37.0" prefWidth="150.0" styleClass="buttonmenu" stylesheets="@style/style.css" text="Requests">
+                  <Button id="requestsButton" layoutX="10.0" layoutY="180.0" mnemonicParsing="false" onAction="#switchToRequests" prefHeight="37.0" prefWidth="150.0" styleClass="buttonmenu" stylesheets="@style/style.css" text="Requests">
                      <graphic>
                         <ImageView fitHeight="46.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -58,7 +58,7 @@
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Button layoutX="10.0" layoutY="228.0" mnemonicParsing="false" onAction="#switchToCalendar" prefHeight="37.0" prefWidth="150.0" styleClass="buttonmenu" stylesheets="@style/style.css" text="Calendar">
+                  <Button id="calendarButton" layoutX="10.0" layoutY="228.0" mnemonicParsing="false" onAction="#switchToCalendar" prefHeight="37.0" prefWidth="150.0" styleClass="buttonmenu" stylesheets="@style/style.css" text="Calendar">
                      <graphic>
                         <ImageView fitHeight="46.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -67,7 +67,7 @@
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Button layoutX="10.0" layoutY="276.0" mnemonicParsing="false" onAction="#switchToAccount" prefHeight="37.0" prefWidth="150.0" styleClass="buttonmenu" stylesheets="@style/style.css" text="Account">
+                  <Button id="accountButton" layoutX="10.0" layoutY="276.0" mnemonicParsing="false" onAction="#switchToAccount" prefHeight="37.0" prefWidth="150.0" styleClass="buttonmenu" stylesheets="@style/style.css" text="Account">
                      <graphic>
                         <ImageView fitHeight="46.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -76,7 +76,7 @@
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Button mnemonicParsing="false" onAction="#switchToCourses" prefHeight="26.0" prefWidth="192.0" styleClass="buttonmenu" stylesheets="@style/style.css" text="Courses">
+                  <Button id="coursesButton" mnemonicParsing="false" onAction="#switchToCourses" prefHeight="26.0" prefWidth="192.0" styleClass="buttonmenu" stylesheets="@style/style.css" text="Courses">
                      <graphic>
                         <ImageView fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -85,7 +85,7 @@
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Button mnemonicParsing="false" onAction="#logoutButtonPressed" prefHeight="37.0" prefWidth="192.0" styleClass="buttonmenu" stylesheets="@style/style.css" text="Logout">
+                  <Button id="logoutButton" mnemonicParsing="false" onAction="#logoutButtonPressed" prefHeight="37.0" prefWidth="192.0" styleClass="buttonmenu" stylesheets="@style/style.css" text="Logout">
                      <graphic>
                         <ImageView fitHeight="46.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -120,7 +120,7 @@
                                           <Font size="14.0" />
                                        </font>
                                     </Label>
-                                    <PasswordField fx:id="passwordField" prefHeight="26.0" prefWidth="223.0" />
+                                    <PasswordField id="newPassword" fx:id="passwordField" prefHeight="26.0" prefWidth="223.0" />
                                  </children>
                               </HBox>
                               <HBox alignment="CENTER" layoutX="10.0" layoutY="70.0" prefHeight="54.0" prefWidth="503.0" spacing="20.0">
@@ -130,20 +130,20 @@
                                           <Font size="14.0" />
                                        </font>
                                     </Label>
-                                    <PasswordField fx:id="confirmPasswordField" prefHeight="26.0" prefWidth="223.0" />
+                                    <PasswordField id="confirmNewPassword" fx:id="confirmPasswordField" prefHeight="26.0" prefWidth="223.0" />
                                  </children>
                               </HBox>
                               <HBox alignment="CENTER" prefHeight="32.0" prefWidth="503.0">
                                  <children>
                                     <AnchorPane prefHeight="32.0" prefWidth="26.0" />
-                                    <Button mnemonicParsing="false" onAction="#changePassword" style="-fx-background-color: rgb(34, 21, 108); -fx-background-radius: 30;" text="Change password" textFill="WHITE">
+                                    <Button id="changePasswordButton" mnemonicParsing="false" onAction="#changePassword" style="-fx-background-color: rgb(34, 21, 108); -fx-background-radius: 30;" text="Change password" textFill="WHITE">
                                        <font>
                                           <Font name="System Bold" size="12.0" />
                                        </font>
                                     </Button>
                                  </children>
                               </HBox>
-                              <Label fx:id="passwordWarningLabel" prefHeight="18.0" prefWidth="250.0" textFill="#22156c" />
+                              <Label id="passwordWarning" fx:id="passwordWarningLabel" prefHeight="18.0" prefWidth="250.0" textFill="#22156c" />
                               <Separator prefHeight="22.0" prefWidth="503.0" />
                               <Label layoutX="87.0" layoutY="10.0" prefHeight="60.0" prefWidth="350.0" text="Change name" textFill="#22156c">
                                  <font>
@@ -157,20 +157,20 @@
                                           <Font size="14.0" />
                                        </font>
                                     </Label>
-                                    <TextField fx:id="nameTextfield" prefHeight="26.0" prefWidth="223.0" />
+                                    <TextField id="name" fx:id="nameTextField" prefHeight="26.0" prefWidth="223.0" />
                                  </children>
                               </HBox>
                               <HBox alignment="CENTER" layoutX="10.0" layoutY="179.0" prefHeight="32.0" prefWidth="503.0">
                                  <children>
                                     <AnchorPane prefHeight="32.0" prefWidth="26.0" />
-                                    <Button mnemonicParsing="false" onAction="#changeName" style="-fx-background-color: rgb(34, 21, 108); -fx-background-radius: 30;" text="Change name" textFill="WHITE">
+                                    <Button id="changeNameButton" mnemonicParsing="false" onAction="#changeName" style="-fx-background-color: rgb(34, 21, 108); -fx-background-radius: 30;" text="Change name" textFill="WHITE">
                                        <font>
                                           <Font name="System Bold" size="12.0" />
                                        </font>
                                     </Button>
                                  </children>
                               </HBox>
-                              <Label fx:id="nameWarningLabel" textFill="#22156c" />
+                              <Label id="nameWarning" fx:id="nameWarningLabel" textFill="#22156c" />
                               <Separator layoutX="10.0" layoutY="211.0" prefHeight="22.0" prefWidth="503.0" />
                               <Label layoutX="87.0" layoutY="233.0" prefHeight="60.0" prefWidth="350.0" text="Change subject" textFill="#22156c">
                                  <font>
@@ -184,20 +184,20 @@
                                           <Font size="14.0" />
                                        </font>
                                     </Label>
-                                    <TextField fx:id="subjectTextfield" prefHeight="26.0" prefWidth="223.0" />
+                                    <TextField id="subject" fx:id="subjectTextField" prefHeight="26.0" prefWidth="223.0" />
                                  </children>
                               </HBox>
                               <HBox alignment="CENTER" layoutX="10.0" layoutY="348.0" prefHeight="32.0" prefWidth="503.0">
                                  <children>
                                     <AnchorPane prefHeight="32.0" prefWidth="26.0" />
-                                    <Button mnemonicParsing="false" onAction="#changeSubject" style="-fx-background-color: rgb(34, 21, 108); -fx-background-radius: 30;" text="Change subject" textFill="WHITE">
+                                    <Button id="changeSubjectButton" mnemonicParsing="false" onAction="#changeSubject" style="-fx-background-color: rgb(34, 21, 108); -fx-background-radius: 30;" text="Change subject" textFill="WHITE">
                                        <font>
                                           <Font name="System Bold" size="12.0" />
                                        </font>
                                     </Button>
                                  </children>
                               </HBox>
-                              <Label fx:id="subjectWarningLabel" textFill="#22156c" />
+                              <Label id="subjectWarning" fx:id="subjectWarningLabel" textFill="#22156c" />
                            </children>
                         </VBox>
                         <Separator orientation="VERTICAL" prefHeight="200.0" />
@@ -215,21 +215,21 @@
                                           <Font size="14.0" />
                                        </font>
                                     </Label>
-                                    <TextField fx:id="specializationTextield" prefHeight="26.0" prefWidth="223.0" />
+                                    <TextField id="specialization" fx:id="specializationTextField" prefHeight="26.0" prefWidth="223.0" />
                                  </children>
                               </HBox>
                               <HBox alignment="CENTER" layoutX="10.0" layoutY="179.0" prefHeight="32.0" prefWidth="503.0">
                                  <children>
                                     <AnchorPane prefHeight="32.0" prefWidth="26.0" />
-                                    <Button mnemonicParsing="false" onAction="#changeSpecialization" style="-fx-background-color: rgb(34, 21, 108); -fx-background-radius: 30;" text="Change specialization" textFill="WHITE">
+                                    <Button id="changeSpecializationButton" mnemonicParsing="false" onAction="#changeSpecialization" style="-fx-background-color: rgb(34, 21, 108); -fx-background-radius: 30;" text="Change specialization" textFill="WHITE">
                                        <font>
                                           <Font name="System Bold" size="12.0" />
                                        </font>
                                     </Button>
                                  </children>
                               </HBox>
-                              <Label fx:id="specializationWarningLabel" textFill="#22156c" />
-                              <Separator layoutX="10.0" layoutY="211.0" prefHeight="130.0" prefWidth="503.0" />
+                              <Label id="specializationWarning" fx:id="specializationWarningLabel" textFill="#22156c" />
+                              <Separator layoutX="10.0" layoutY="211.0" prefHeight="91.0" prefWidth="503.0" />
                               <Label layoutX="87.0" layoutY="233.0" prefHeight="60.0" prefWidth="350.0" text="Change class name" textFill="#22156c">
                                  <font>
                                     <Font name="System Bold" size="18.0" />
@@ -242,20 +242,30 @@
                                           <Font size="14.0" />
                                        </font>
                                     </Label>
-                                    <TextField fx:id="classNameTextfield" prefHeight="26.0" prefWidth="223.0" />
+                                    <TextField id="className" fx:id="classNameTextField" prefHeight="26.0" prefWidth="223.0" />
                                  </children>
                               </HBox>
                               <HBox alignment="CENTER" layoutX="10.0" layoutY="348.0" prefHeight="32.0" prefWidth="503.0">
                                  <children>
                                     <AnchorPane prefHeight="32.0" prefWidth="150.0" />
-                                    <Button mnemonicParsing="false" onAction="#changeClassName" style="-fx-background-color: rgb(34, 21, 108); -fx-background-radius: 30;" text="Change class name" textFill="WHITE">
+                                    <Button id="changeClassNameButton" mnemonicParsing="false" onAction="#changeClassName" style="-fx-background-color: rgb(34, 21, 108); -fx-background-radius: 30;" text="Change class name" textFill="WHITE">
                                        <font>
                                           <Font name="System Bold" size="12.0" />
                                        </font>
                                     </Button>
                                  </children>
                               </HBox>
-                              <Label fx:id="classNameWarningLabel" textFill="#22156c" />
+                              <Label id="classNameWarning" fx:id="classNameWarningLabel" textFill="#22156c" />
+                              <Separator prefHeight="53.0" prefWidth="503.0" />
+                              <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                                 <children>
+                                    <Label fx:id="reviewLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="229.0" layoutY="84.0" textFill="#22156c">
+                                       <font>
+                                          <Font name="System Bold" size="18.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </AnchorPane>
                            </children>
                         </VBox>
                      </children>

@@ -31,41 +31,44 @@ public class AccountTutorController implements Initializable {
     private Label passwordWarningLabel;
 
     @FXML
-    private TextField nameTextfield;
+    private TextField nameTextField;
 
     @FXML
     private Label nameWarningLabel;
 
     @FXML
-    private TextField subjectTextfield;
+    private TextField subjectTextField;
 
     @FXML
     private Label subjectWarningLabel;
 
     @FXML
-    private TextField specializationTextield;
+    private TextField specializationTextField;
 
     @FXML
     private Label specializationWarningLabel;
 
     @FXML
-    private TextField classNameTextfield;
+    private TextField classNameTextField;
 
     @FXML
     private Label classNameWarningLabel;
+
+    @FXML
+    private Label reviewLabel;
 
     private Tutor tutor;
     private ArrayList<Lesson> lessons = LessonService.getAllLessons();
 
     @FXML
     void changeClassName() {
-        if (classNameTextfield.getText() == null || classNameTextfield.getText().isEmpty()){
+        if (classNameTextField.getText() == null || classNameTextField.getText().isEmpty()){
             classNameWarningLabel.setText("Please enter your new class name.");
             return;
         }
         for (Lesson lesson : lessons) {
             if(lesson.getTutorName().equals(tutor.getNume()) && lesson.getStudentName().equals("") && lesson.getStatus().equals("")) {
-                lesson.setLessonName(classNameTextfield.getText());
+                lesson.setLessonName(classNameTextField.getText());
                 DatabaseService.getDatabase().getRepository(Lesson.class).update(lesson);
             }
             break;
@@ -76,11 +79,11 @@ public class AccountTutorController implements Initializable {
 
     @FXML
     void changeName() {
-        if (nameTextfield == null || nameTextfield.getText().isEmpty()){
+        if (nameTextField == null || nameTextField.getText().isEmpty()){
             nameWarningLabel.setText("Please enter your new name.");
             return;
         }
-        tutor.setNume(nameTextfield.getText());
+        tutor.setNume(nameTextField.getText());
         DatabaseService.getDatabase().getRepository(Tutor.class).update(tutor);
         nameWarningLabel.setText("Name changed successfully.");
         return;
@@ -109,11 +112,11 @@ public class AccountTutorController implements Initializable {
 
     @FXML
     void changeSpecialization() {
-        if (specializationTextield == null || specializationTextield.getText().isEmpty()) {
+        if (specializationTextField == null || specializationTextField.getText().isEmpty()) {
             specializationWarningLabel.setText("Please enter your new specialization.");
             return;
         }
-        tutor.setSpecializare(specializationTextield.getText());
+        tutor.setSpecializare(specializationTextField.getText());
         DatabaseService.getDatabase().getRepository(Tutor.class).update(tutor);
         specializationWarningLabel.setText("Specialization changed successfully.");
         return;
@@ -121,11 +124,11 @@ public class AccountTutorController implements Initializable {
 
     @FXML
     void changeSubject() {
-        if (subjectTextfield == null || subjectTextfield.getText().isEmpty()) {
+        if (subjectTextField == null || subjectTextField.getText().isEmpty()) {
             subjectWarningLabel.setText("Please enter your new subject.");
             return;
         }
-        tutor.setMaterie(subjectTextfield.getText());
+        tutor.setMaterie(subjectTextField.getText());
         DatabaseService.getDatabase().getRepository(Tutor.class).update(tutor);
         subjectWarningLabel.setText("Subject changed successfully.");
         return;
@@ -173,12 +176,13 @@ public class AccountTutorController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         TutorHolder tutorHolder = TutorHolder.getInstance();
         tutor = tutorHolder.getTutor();
-        nameTextfield.setText(tutor.getNume());
-        subjectTextfield.setText(tutor.getMaterie());
-        specializationTextield.setText(tutor.getSpecializare());
+        nameTextField.setText(tutor.getNume());
+        subjectTextField.setText(tutor.getMaterie());
+        specializationTextField.setText(tutor.getSpecializare());
+        reviewLabel.setText("Review: "+tutor.getRating()/tutor.getCntRating());
         for (Lesson lesson : lessons) {
             if(lesson.getTutorName().equals(tutor.getNume()) && lesson.getStudentName().equals("") && lesson.getStatus().equals("")) {
-                classNameTextfield.setText(lesson.getLessonName());
+                classNameTextField.setText(lesson.getLessonName());
             }
             break;
         }
