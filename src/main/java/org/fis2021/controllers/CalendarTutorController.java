@@ -31,8 +31,12 @@ public class CalendarTutorController implements Initializable {
     @FXML
     private CalendarView calendarView;
 
-    private Calendar calendar;
+    private static Calendar calendar;
     private ArrayList<Lesson> lessons;
+
+    static Calendar getCalendar() {
+        return calendar;
+    }
 
     public LocalDate stringToDate(String date) {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("d MM yyyy");
