@@ -71,6 +71,7 @@ class RequestTutorTest {
         assertThat(robot.lookup("#statusRequest").queryLabeled().getText()).isEqualTo("declined");
 
         robot.clickOn("#requestItemHBox");
+        robot.clickOn("OK");
     }
 
     @Test
