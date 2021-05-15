@@ -96,10 +96,14 @@ public class TutorInfoItemController implements Initializable {
         submitButton.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent mouseEvent) {
-                tutor.setRating(tutor.getRating() + rating[0]);
-                tutor.setCntRating(tutor.getCntRating() + 1);
-                ObjectRepository<Tutor> tutorObjectRepository = DatabaseService.getDatabase().getRepository(Tutor.class);
-                tutorObjectRepository.update(tutor);
+                if (ratingStars == null || ratingStars.getRating() == 0) {
+                    return;
+                }else {
+                    tutor.setRating(tutor.getRating() + rating[0]);
+                    tutor.setCntRating(tutor.getCntRating() + 1);
+                    ObjectRepository<Tutor> tutorObjectRepository = DatabaseService.getDatabase().getRepository(Tutor.class);
+                    tutorObjectRepository.update(tutor);
+                }
             }
         });
     }
