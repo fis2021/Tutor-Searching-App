@@ -1,8 +1,10 @@
 package org.fis2021.controllers;
 
 import javafx.scene.Scene;
+import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 import org.apache.commons.io.FileUtils;
+import org.controlsfx.control.Rating;
 import org.fis2021.exceptions.UsernameAlreadyExistsException;
 import org.fis2021.services.*;
 import org.junit.jupiter.api.AfterEach;
@@ -58,6 +60,73 @@ class TutorListTest {
     @AfterEach
     void tearDown() {
         DatabaseService.getDatabase().close();
+    }
+
+    @Test
+    void testRating(FxRobot robot) {
+        robot.clickOn("#username");
+        robot.write("ana.ana");
+        robot.clickOn("#password");
+        robot.write("abcd");
+        robot.clickOn("#role");
+        robot.clickOn("Student");
+        robot.clickOn("#loginButton");
+        robot.clickOn("#tutorlistButton");
+        robot.clickOn("#tutorSearchField");
+        robot.write("vl");
+        robot.clickOn("#tutorSearchButton");
+        robot.clickOn("#tutorListHBox");
+        Rating rating = robot.lookup("#ratingStars").query();
+        rating.setRating(3);
+        robot.clickOn("#submitRating");
+        robot.clickOn("#tutorlistButton");
+        robot.clickOn("#tutorSearchField");
+        robot.write("vl");
+        robot.clickOn("#tutorSearchButton");
+        robot.clickOn("#tutorListHBox");
+        double nr = 3;
+        assertThat(robot.lookup("#tutorInfoRating").queryLabeled().getText()).isEqualTo(String.valueOf(nr));
+    }
+
+    @Test
+    void testNullRating(FxRobot robot) {
+        robot.clickOn("#username");
+        robot.write("ana.ana");
+        robot.clickOn("#password");
+        robot.write("abcd");
+        robot.clickOn("#role");
+        robot.clickOn("Student");
+        robot.clickOn("#loginButton");
+        robot.clickOn("#tutorlistButton");
+        robot.clickOn("#tutorSearchField");
+        robot.write("vl");
+        robot.clickOn("#tutorSearchButton");
+        robot.clickOn("#tutorListHBox");
+        robot.clickOn("#submitRating");
+        robot.clickOn("#tutorlistButton");
+        robot.clickOn("#tutorSearchField");
+        robot.write("vl");
+        robot.clickOn("#tutorSearchButton");
+        robot.clickOn("#tutorListHBox");
+        assertThat(robot.lookup("#tutorInfoRating").queryLabeled().getText()).isEqualTo("0");
+    }
+
+    @Test
+    void testNotAcceptedStudentAndRatingIsNotVisible(FxRobot robot) {
+        robot.clickOn("#username");
+        robot.write("ana.ana");
+        robot.clickOn("#password");
+        robot.write("abcd");
+        robot.clickOn("#role");
+        robot.clickOn("Student");
+        robot.clickOn("#loginButton");
+        robot.clickOn("#tutorlistButton");
+        robot.clickOn("#tutorSearchField");
+        robot.write("andrei");
+        robot.clickOn("#tutorSearchButton");
+        robot.clickOn("#tutorListHBox");
+        HBox ratingView = robot.lookup("#ratingView").query();
+        assertFalse(ratingView.isVisible());
     }
 
     @Test

@@ -75,7 +75,7 @@
             </VBox>
          </children>
       </HBox>
-      <HBox fx:id="ratingView" alignment="CENTER_LEFT" prefHeight="152.0" prefWidth="795.0" spacing="20.0">
+      <HBox fx:id="ratingView" id="ratingView" alignment="CENTER_LEFT" prefHeight="152.0" prefWidth="795.0" spacing="20.0">
          <children>
             <Label alignment="CENTER_RIGHT" prefHeight="115.0" prefWidth="322.0" text="Leave a rating" textFill="#22156c">
                <font>
@@ -84,10 +84,10 @@
             </Label>
             <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
                <children>
-                  <Rating fx:id="ratingStars" rating="0.0" />
+                  <Rating fx:id="ratingStars" id="ratingStars" rating="0.0" />
                </children>
             </VBox>
-            <Button fx:id="submitButton" mnemonicParsing="false" style="-fx-background-color: rgb(34,21,108); -fx-background-radius: 30;" text="Submit" textFill="WHITE">
+            <Button fx:id="submitButton" id="submitRating" mnemonicParsing="false" style="-fx-background-color: rgb(34,21,108); -fx-background-radius: 30;" text="Submit" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="13.0" />
                </font>

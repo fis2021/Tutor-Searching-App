@@ -52,17 +52,17 @@
                   <Font size="18.0" />
                </font>
             </Label>
-            <Label fx:id="tutorRegisterLabel" layoutX="129.0" layoutY="559.0" onMouseClicked="#registerTutor" text="If you are a tutor, click here to register" textAlignment="CENTER" textFill="#22156c">
+            <Label fx:id="tutorRegisterLabel" id="registerTutor" layoutX="129.0" layoutY="559.0" onMouseClicked="#registerTutor" text="If you are a tutor, click here to register" textAlignment="CENTER" textFill="#22156c">
                <font>
                   <Font size="18.0" />
                </font>
             </Label>
-            <Label fx:id="studentRegisterLabel" layoutX="840.0" layoutY="559.0" onMouseClicked="#registerStudent" text="If you are a student, click here to register" textAlignment="CENTER" textFill="#22156c">
+            <Label fx:id="studentRegisterLabel" id="registerStudent" layoutX="840.0" layoutY="559.0" onMouseClicked="#registerStudent" text="If you are a student, click here to register" textAlignment="CENTER" textFill="#22156c">
                <font>
                   <Font size="18.0" />
                </font>
             </Label>
-            <Label fx:id="invalidCredentialsLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="338.0" layoutY="457.0" prefHeight="67.0" prefWidth="605.0" textAlignment="CENTER">
+            <Label fx:id="invalidCredentialsLabel" id="warningLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="338.0" layoutY="457.0" prefHeight="67.0" prefWidth="605.0" textAlignment="CENTER">
                <font>
                   <Font size="18.0" />
                </font>

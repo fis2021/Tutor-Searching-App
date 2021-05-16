@@ -20,32 +20,32 @@
                   <Image url="@../../pictures/Title.png" />
                </image>
             </ImageView>
-            <Button fx:id="registerButton" layoutX="744.0" layoutY="490.0" mnemonicParsing="false" onAction="#registerStudent" prefHeight="40.0" prefWidth="120.0" text="Register" textFill="#22156c">
+            <Button fx:id="registerButton" id="registerStudent" layoutX="744.0" layoutY="490.0" mnemonicParsing="false" onAction="#registerStudent" prefHeight="40.0" prefWidth="120.0" text="Register" textFill="#22156c">
                <font>
                   <Font size="18.0" />
                </font>
             </Button>
-            <TextField fx:id="numeField" layoutX="640.0" layoutY="184.0">
+            <TextField fx:id="numeField" id="nameStudent" layoutX="640.0" layoutY="184.0">
                <font>
                   <Font size="18.0" />
                </font>
             </TextField>
-            <TextField fx:id="facultateField" layoutX="640.0" layoutY="229.0">
+            <TextField fx:id="facultateField" id="uniStudent" layoutX="640.0" layoutY="229.0">
                <font>
                   <Font size="18.0" />
                </font>
             </TextField>
-            <TextField fx:id="specializareField" layoutX="640.0" layoutY="274.0">
+            <TextField fx:id="specializareField" id="specStudent" layoutX="640.0" layoutY="274.0">
                <font>
                   <Font size="18.0" />
                </font>
             </TextField>
-            <TextField fx:id="nr_matricolField" layoutX="640.0" layoutY="321.0">
+            <TextField fx:id="nr_matricolField" id="regNoStudent" layoutX="640.0" layoutY="321.0">
                <font>
                   <Font size="18.0" />
                </font>
             </TextField>
-            <TextField fx:id="usernameField" layoutX="640.0" layoutY="366.0">
+            <TextField fx:id="usernameField" id="usernameStudent" layoutX="640.0" layoutY="366.0">
                <font>
                   <Font size="18.0" />
                </font>
@@ -55,7 +55,7 @@
                   <Font size="18.0" />
                </font>
             </Label>
-            <PasswordField fx:id="passwordField" layoutX="640.0" layoutY="411.0">
+            <PasswordField fx:id="passwordField" id="passwordStudent" layoutX="640.0" layoutY="411.0">
                <font>
                   <Font size="18.0" />
                </font>
@@ -85,12 +85,12 @@
                   <Font size="18.0" />
                </font>
             </Label>
-            <Label fx:id="invalidCredentialsLabel" alignment="BASELINE_CENTER" contentDisplay="CENTER" layoutX="180.0" layoutY="575.0" prefHeight="60.0" prefWidth="920.0" textAlignment="CENTER">
+            <Label fx:id="invalidCredentialsLabel" id="warningLabel" alignment="BASELINE_CENTER" contentDisplay="CENTER" layoutX="180.0" layoutY="575.0" prefHeight="60.0" prefWidth="920.0" textAlignment="CENTER">
                <font>
                   <Font size="18.0" />
                </font>
             </Label>
-            <Button fx:id="loginButton" layoutX="469.0" layoutY="490.0" mnemonicParsing="false" onAction="#backToLogin" prefHeight="40.0" prefWidth="120.0" text="Login" textFill="#22156c">
+            <Button fx:id="loginButton" id="switchToLogin" layoutX="469.0" layoutY="490.0" mnemonicParsing="false" onAction="#backToLogin" prefHeight="40.0" prefWidth="120.0" text="Login" textFill="#22156c">
                <font>
                   <Font size="18.0" />
                </font>
