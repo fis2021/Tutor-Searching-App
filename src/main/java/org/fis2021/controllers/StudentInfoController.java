@@ -28,6 +28,9 @@ public class StudentInfoController {
     private Label succesLabel;
 
     @FXML
+    private Label courseLabel;
+
+    @FXML
     private Label nameLabel;
 
     @FXML
@@ -45,7 +48,7 @@ public class StudentInfoController {
     private Student student;
     private ArrayList<Lesson> lessonArrayList = LessonService.getAllLessons();
 
-    public void setInfo(Student student) {
+    public void setInfo(Student student, String courseName) {
         this.student=student;
         nameLabel.setText(student.getNume());
         facultyLabel.setText(student.getFacultate());
@@ -56,6 +59,7 @@ public class StudentInfoController {
         removeTextField.setVisible(false);
         succesLabel.setVisible(false);
         stateLabel.setVisible(false);
+        courseLabel.setText(courseName);
     }
 
     @FXML
