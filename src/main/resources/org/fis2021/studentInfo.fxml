@@ -12,27 +12,27 @@
 
 <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="800.0" style="-fx-background-color: #cfcbcb; -fx-background-radius: 30;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.fis2021.controllers.StudentInfoController">
     <children>
-      <AnchorPane prefHeight="150.0" prefWidth="200.0">
-         <children>
-            <Button fx:id="submitButton" id="submitButton" layoutX="400.0" layoutY="56.0" mnemonicParsing="false" onAction="#removeStudent" style="-fx-background-radius: 20;" styleClass="buttonmenu" stylesheets="@style/style.css" text="Submit" />
-            <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="694.0" layoutY="45.0" onMouseClicked="#enableRemoveStudent" id="enableRemove" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../pictures/delete.png" />
-               </image>
-            </ImageView>
-            <Label fx:id="stateLabel" id="stateLabel" layoutX="79.0" layoutY="25.0" text="Please state your removing reason:" textFill="#22156c">
-               <font>
-                  <Font size="14.0" />
-               </font>
-            </Label>
-            <TextField fx:id="removeTextField" id="removeText" layoutX="12.0" layoutY="56.0" prefHeight="40.0" prefWidth="350.0" />
-            <Label fx:id="succesLabel" id="successLabel" layoutX="94.0" layoutY="116.0" text="Student successfully removed!" textFill="#22156c">
-               <font>
-                  <Font size="14.0" />
-               </font>
-            </Label>
-         </children>
-      </AnchorPane>
+        <AnchorPane prefHeight="150.0" prefWidth="200.0">
+            <children>
+                <Button id="submitButton" fx:id="submitButton" layoutX="400.0" layoutY="56.0" mnemonicParsing="false" onAction="#removeStudent" style="-fx-background-radius: 20;" styleClass="buttonmenu" stylesheets="@style/style.css" text="Submit" />
+                <ImageView id="enableRemove" fitHeight="60.0" fitWidth="60.0" layoutX="694.0" layoutY="45.0" onMouseClicked="#enableRemoveStudent" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@../../pictures/delete.png" />
+                    </image>
+                </ImageView>
+                <Label id="stateLabel" fx:id="stateLabel" layoutX="79.0" layoutY="25.0" text="Please state your removing reason:" textFill="#22156c">
+                    <font>
+                        <Font size="14.0" />
+                    </font>
+                </Label>
+                <TextField id="removeText" fx:id="removeTextField" layoutX="12.0" layoutY="56.0" prefHeight="40.0" prefWidth="350.0" />
+                <Label id="successLabel" fx:id="succesLabel" layoutX="94.0" layoutY="116.0" text="Student successfully removed!" textFill="#22156c">
+                    <font>
+                        <Font size="14.0" />
+                    </font>
+                </Label>
+            </children>
+        </AnchorPane>
         <HBox alignment="CENTER" prefHeight="304.0" prefWidth="800.0">
             <children>
                 <VBox alignment="CENTER_RIGHT" prefHeight="304.0" prefWidth="236.0" spacing="20.0">
@@ -62,31 +62,41 @@
                                 <Font name="System Bold" size="24.0" />
                             </font>
                         </Label>
+                        <Label text="Course" textFill="#22156c">
+                            <font>
+                                <Font name="System Bold" size="24.0" />
+                            </font>
+                        </Label>
                     </children>
                 </VBox>
                 <VBox alignment="CENTER" prefHeight="304.0" prefWidth="334.0" spacing="20.0">
                     <children>
-                        <Label fx:id="nameLabel" id="studentInfoName" textFill="#22156c">
+                        <Label id="studentInfoName" fx:id="nameLabel" textFill="#22156c">
                             <font>
                                 <Font name="System Bold" size="24.0" />
                             </font>
                         </Label>
-                        <Label fx:id="facultyLabel" id="studentInfoFaculty" layoutX="148.0" layoutY="144.0" textFill="#22156c">
+                        <Label id="studentInfoFaculty" fx:id="facultyLabel" layoutX="148.0" layoutY="144.0" textFill="#22156c">
                             <font>
                                 <Font name="System Bold" size="24.0" />
                             </font>
                         </Label>
-                        <Label fx:id="specializationLabel" id="studentInfoSpecialization" layoutX="148.0" layoutY="172.0" textFill="#22156c">
+                        <Label id="studentInfoSpecialization" fx:id="specializationLabel" layoutX="148.0" layoutY="172.0" textFill="#22156c">
                             <font>
                                 <Font name="System Bold" size="24.0" />
                             </font>
                         </Label>
-                        <Label fx:id="registrationNumberLabel" id="studentInfoRegistrationNumber" layoutX="148.0" layoutY="200.0" textFill="#22156c">
+                        <Label id="studentInfoRegistrationNumber" fx:id="registrationNumberLabel" layoutX="148.0" layoutY="200.0" textFill="#22156c">
                             <font>
                                 <Font name="System Bold" size="24.0" />
                             </font>
                         </Label>
-                        <Label fx:id="usernameLabel" id="studentInfoUsername" textFill="#22156c">
+                        <Label id="studentInfoUsername" fx:id="usernameLabel" textFill="#22156c">
+                            <font>
+                                <Font name="System Bold" size="24.0" />
+                            </font>
+                        </Label>
+                        <Label fx:id="courseLabel" textFill="#22156c">
                             <font>
                                 <Font name="System Bold" size="24.0" />
                             </font>
