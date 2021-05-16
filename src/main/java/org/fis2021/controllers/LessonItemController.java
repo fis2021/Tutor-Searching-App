@@ -47,21 +47,21 @@ public class LessonItemController {
         int cnt = 0;
         for (Lesson lessontemp : lessons) {
             if (lessontemp.equals(lesson) && !lessontemp.getStudentName().equals("") && !lessontemp.getStatus().equals("")) {
-                if (lessontemp.getStudentName().equals(student.getUsername()) && lessontemp.getStatus().equals("pending")) {
+                if (lessontemp.getStudentName().equals(student.getUsername()) && lessontemp.getLessonName().equals(lesson.getLessonName()) && lessontemp.getDate().equals(lesson.getDate()) && lessontemp.getStartTime().equals(lesson.getStartTime()) && lessontemp.getEndTime().equals(lesson.getEndTime()) && lessontemp.getStatus().equals("pending")) {
                     Alert alert = new Alert(Alert.AlertType.INFORMATION);
                     alert.setTitle("Request is pending");
                     alert.setHeaderText("Pending Request");
                     alert.setContentText("Request for this class is already pending.");
                     alert.showAndWait();
                     return;
-                } else if (lessontemp.getStudentName().equals(student.getUsername()) && lessontemp.getStatus().equals("accepted")) {
+                } else if (lessontemp.getStudentName().equals(student.getUsername()) && lessontemp.getLessonName().equals(lesson.getLessonName()) && lessontemp.getDate().equals(lesson.getDate())&& lessontemp.getStartTime().equals(lesson.getStartTime()) && lessontemp.getEndTime().equals(lesson.getEndTime()) && lessontemp.getStatus().equals("accepted")) {
                     Alert alert = new Alert(Alert.AlertType.INFORMATION);
                     alert.setTitle("Request is accepted");
                     alert.setHeaderText("Request already accepted");
                     alert.setContentText("You are already enrolled in this class.");
                     alert.showAndWait();
                     return;
-                } else if (lessontemp.getStudentName().equals(student.getUsername()) && lessontemp.getStatus().equals("declined")) {
+                } else if (lessontemp.getStudentName().equals(student.getUsername()) && lessontemp.getLessonName().equals(lesson.getLessonName()) && lessontemp.getDate().equals(lesson.getDate()) && lessontemp.getStartTime().equals(lesson.getStartTime()) && lessontemp.getEndTime().equals(lesson.getEndTime()) && lessontemp.getStatus().equals("declined")) {
                     Alert alert = new Alert(Alert.AlertType.INFORMATION);
                     alert.setTitle("Request has been already declined");
                     alert.setHeaderText("Request already declined");
