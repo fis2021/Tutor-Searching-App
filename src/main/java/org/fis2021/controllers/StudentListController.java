@@ -43,8 +43,6 @@ public class StudentListController implements Initializable{
     @FXML
     private ScrollPane scrollPane;
 
-    private String courseName;
-
     private ArrayList<Student> studentArrayList = new ArrayList<>();
     private ArrayList<Lesson> lessonArrayList = new ArrayList<>();
 
@@ -62,7 +60,6 @@ public class StudentListController implements Initializable{
             Tutor tutor = tutorHolder.getTutor();
             for (Lesson lesson : lessonArrayList) {
                 if (lesson.getTutorName().equals(tutor.getNume()) && lesson.getStatus().equals("accepted")) {
-                    courseName = lesson.getLessonName();
                     FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/fis2021/studentListItem.fxml"));
                     HBox hBox = loader.load();
                     hBoxEventHandler(hBox, StudentService.getStudent(lesson.getStudentName()));
@@ -76,7 +73,7 @@ public class StudentListController implements Initializable{
         }
     }
 
-    void loadStudentInfoItem(Student student, String courseName) {
+    void loadStudentInfoItem(Student student) {
         try {
             scrollPane.setVvalue(0);
             headerHBox.setVisible(false);
@@ -84,7 +81,7 @@ public class StudentListController implements Initializable{
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/fis2021/studentInfo.fxml"));
             VBox studentInfoVBox = loader.load();
             StudentInfoController studentInfoController = loader.getController();
-            studentInfoController.setInfo(student, courseName);
+            studentInfoController.setInfo(student);
             vBox.getChildren().add(studentInfoVBox);
         } catch (IOException e) {
             e.printStackTrace();
@@ -153,7 +150,7 @@ public class StudentListController implements Initializable{
     }
 
     void hBoxEventHandler(HBox hBox, Student student){
-        hBox.setOnMouseClicked(mouseEvent -> loadStudentInfoItem(student, courseName));
+        hBox.setOnMouseClicked(mouseEvent -> loadStudentInfoItem(student));
     }
 
     @FXML
